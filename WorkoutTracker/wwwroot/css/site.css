@@ -9,11 +9,29 @@ h1 {
     color: red;
 }
 
+html main {
+    background-color: rgba(0,0,0,1.00);
+}
+
+.navbar {
+    background-color: black;
+}
+
+.navbar-nav{
+    background-color: black;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  background-color: black;
 }
+
+.nav-item{
+    background-color: black;
+}
+
 
 /* Provide sufficient contrast against white background */
 a {
@@ -43,12 +61,12 @@ html {
   }
 }
 
-.border-top {
+/*.border-top {
   border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
-}
+}*/
 
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
