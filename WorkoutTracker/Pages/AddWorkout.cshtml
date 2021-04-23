@@ -1,4 +1,84 @@
 ﻿@page
 @model WorkoutTracker.Pages.AddWorkoutModel
 @{
+    <html>
+        <head>
+            <text style="color: white">
+                Add Workout
+            </text>
+        </head>
+        <body >
+            <fieldset >
+                <div>
+                    <label style="color: white" for="Location">Location:</label>
+                    <input type="text" name="Location" />
+                </div>
+                <div>
+                    <label style="color: white" for="Date">Date:</label>
+                    <input type="text" name="Date" />
+                </div>
+                <div>
+                    <label style="color: white" for="Weight">Weight:</label>
+                    <input type="text" name="Weight" />
+                </div>
+                <div>
+                    <label style="color: white" for="SleepDuration">Sleep Duration:</label>
+                    <input type="text" name="SleepDuration" />
+                </div>
+                <div>
+                    <label style="color: white" for="Calories">Calories:</label>
+                    <input type="text" name="Calories" />
+                </div>
+                <div>
+                    <label style="color: white" for="StartTime">Start Time:</label>
+                    <input type="text" name="StartTime" />
+                </div>
+                <div>
+                    <label style="color: white" for="EndTime">End Time:</label>
+                    <input type="text" name="EndTime" />
+                </div>
+                <div>
+                    <label style="color: white" for="Duration">Duration:</label>
+                    <input type="text" name="Duration" />
+                </div>
+                <div>
+                    <label style="color: white" for="Sets">Sets:</label>
+                    <input type="text" name="Sets" />
+                </div>
+                <div>
+                    <label style="color: white" for="Reps">Reps:</label>
+                    <input type="text" name="Reps" />
+                </div>
+                <div>
+                    <label style="color: white" for="AvgHeartRate">Average Heart Rate:</label>
+                    <input type="text" name="AvgHeartRate" />
+                </div>
+                <div>
+                    <label style="color: white" for="Name">Exercise Name:</label>
+                    <input type="text" name="Name" />
+                </div>
+                <div style="color: white">
+                    Were you inside?
+                    <select data-val="true" data-val-required="The isIndoor field is required." id="isIndoor" name="isIndoor">
+                        <option selected="selected">Pick one</option>
+                        <option value="0">Yes</option>
+                        <option value="1">No</option>
+                    </select>
+                </div>
+                <div style="color: white">
+                    Weather
+                    <select data-val="true" data-val-required="The Weather field is required." id="Weather" name="Weather">
+                        <option selected="selected">Pick one</option>
+                        <option value="0">Sunny</option>
+                        <option value="1">Rainy</option>
+                        <option value="2">Windy</option>
+                    </select>
+                </div>
+                <div>
+                    <label>&nbsp;</label>
+                    <input type="submit" value="Submit" class="submit" />
+                </div>
+            </fieldset>
+        </body>
+    </html>
 }

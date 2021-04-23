@@ -9,6 +9,11 @@ namespace WorkoutTracker.Pages
 {
     public class AddWorkoutModel : PageModel
     {
+        public bool isIndoor { get; set; }
+
+        
+
+
         public void OnGet()
         {
         }
