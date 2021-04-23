@@ -3,26 +3,34 @@ for details on configuring this project to bundle and minify static web assets. 
 
 :root {
     --orange: #E07B1D;
-    --grey: #514F1F
+    --grey: #514F1F;
+    --background: #212020;
 }
 
 * {
-    background-color: #212020;
+    /*background-color: var(--background);*/
 }
+
+body{
+    background-color: var(--background);
+}
+
 
 h1 {
     color: white;
+    font-size: 60px;
+    font-family: 'Roboto', sans-serif;
 }
-
-html main {
-    background-color: rgba(0,0,0,1.00);
-}
-
 
 /* Coloring for the add button*/
-input {  
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
     background-color: var(--orange);
-    color:black;
+    border-color: var(--orange);
+    color: black;
 }
 
 .navbar {

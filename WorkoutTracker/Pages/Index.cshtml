@@ -4,15 +4,26 @@
     ViewData["Title"] = " Home Page";
 }
 
-<div class="grid-container">
-    <h1>Trends</h1>
+<div class="page">
+    <div class="container">
+        <div class="top-section mt-3">
+            <div class="row">
+                <div class="col-sm">
+                    <h1>Trends</h1>
+                </div>
+                <div class="col-sm">                
+                    <a href="./AddWorkout" role="button" class="btn btn-primary">Add Workout</a>                  
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p style="color: white">This is where we will implement the Add Data Button and the 4 Report-Type Graphs.</p>
 
 
-<input type="button" value="Add Workout" id="myButton" onclick="redirectOnClick()" name="addWorkout"/>
+
+@*<input type="button" value="Add Workout" id="myButton" onclick="redirectOnClick()" name="addWorkout"/>
 <script>
     function redirectOnClick() {
         document.location = 'AddWorkout';
     }
-</script>
+</script>*@
