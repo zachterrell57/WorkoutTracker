@@ -13,6 +13,13 @@ html main {
     background-color: rgba(0,0,0,1.00);
 }
 
+
+/* Coloring for the add button*/
+input {  
+    background-color: orange;
+    color:black;
+}
+
 .navbar {
     background-color: black;
 }
