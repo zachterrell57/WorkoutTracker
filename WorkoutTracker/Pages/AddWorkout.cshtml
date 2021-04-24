@@ -2,74 +2,79 @@
 @model WorkoutTracker.Pages.AddWorkoutModel
 @{
     <div class="container">
-        <div class="top-section mt-3">
-            <text style="color: white">
-                Add Workout
-            </text>
-        
-                <div>
-                    <br />
+        <div class="mt-3">
+            <div class="row">
+                <div class="col">
                     <label style="color: white" for="Location">Location:</label>
                     <br />
                     <input type="text" name="Location" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="Date">Date:</label>
                     <br />
                     <input type="text" name="Date" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="Weight">Weight:</label>
                     <br />
                     <input type="text" name="Weight" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="SleepDuration">Sleep Duration:</label>
                     <br />
                     <input type="text" name="SleepDuration" />
                 </div>
-                <div>
+            </div>
+            <div class="row">
+                <div class="col">
                     <label style="color: white" for="Calories">Calories:</label>
                     <br />
                     <input type="text" name="Calories" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="StartTime">Start Time:</label>
                     <br />
                     <input type="text" name="StartTime" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="EndTime">End Time:</label>
                     <br />
                     <input type="text" name="EndTime" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="Duration">Duration:</label>
                     <br />
                     <input type="text" name="Duration" />
                 </div>
-                <div>
+            </div>
+            <div class="row">
+                <div class="col">
                     <label style="color: white" for="Sets">Sets:</label>
                     <br />
                     <input type="text" name="Sets" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="Reps">Reps:</label>
                     <br />
                     <input type="text" name="Reps" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="AvgHeartRate">Average Heart Rate:</label>
                     <br />
                     <input type="text" name="AvgHeartRate" />
                 </div>
-                <div>
+                <div class="col">
                     <label style="color: white" for="Name">Exercise Name:</label>
                     <br />
                     <input type="text" name="Name" />
                     <br />
                 </div>
-                <div style="color: white">
+            </div>
+            <div class="row">
+                <br />
+            </div>
+            <div class="row ">
+                <div style="color: white" class="col text-center">
                     Were you inside?
                     <select data-val="true" data-val-required="The isIndoor field is required." id="isIndoor" name="isIndoor">
                         <option selected="selected">Pick one</option>
@@ -77,7 +82,7 @@
                         <option value="1">No</option>
                     </select>
                 </div>
-                <div style="color: white">
+                <div style="color: white" class="col text-center">
                     Weather
                     <select data-val="true" data-val-required="The Weather field is required." id="Weather" name="Weather">
                         <option selected="selected">Pick one</option>
@@ -86,10 +91,14 @@
                         <option value="2">Windy</option>
                     </select>
                 </div>
-                <div>
-                    <label>&nbsp;</label>
-                    <input type="submit" value="Submit" class="submit" />
+            </div>
+            <br />
+            <div class="row">
+                <div class="col text-center">
+                <label>&nbsp;</label>
+                <input type="submit" value="Submit" class="submit" />
                 </div>
+            </div>
         </div>
-    </div>
+        </div>
     }
