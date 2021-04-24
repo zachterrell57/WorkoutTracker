@@ -8,7 +8,6 @@ namespace WorkoutTracker.Model
     public class Location
     {
         public int LocationID { get; }
-
         public int Name { get; }
 
         internal Location(int l, int n)
@@ -16,7 +15,5 @@ namespace WorkoutTracker.Model
             LocationID = l;
             Name = n;
         }
-
-
     }
 }
