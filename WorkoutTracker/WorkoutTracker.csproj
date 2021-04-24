@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="DataAccess\DataAccess.csproj" />
     <None Include="wwwroot\Images\AddWorkoutButton" />
   </ItemGroup>
 
