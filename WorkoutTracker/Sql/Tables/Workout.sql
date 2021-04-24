@@ -4,10 +4,9 @@ BEGIN
     (   
         WorkoutID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
         SessionID INT NOT NULL FOREIGN KEY REFERENCES Project.Session(SessionID),   
-        ExerciseID INT NOT NULL FOREIGN KEY REFERENCES Project.Exercise(ExerciseID),
+        GroupNameID INT NOT NULL FOREIGN KEY REFERENCES Project.MuscleGroup(GroupNameID),
         Duration INT NOT NULL, --Out of mins, hours?-- 
-        Sets INT NOT NULL, 
-        Reps INT NOT NULL,
+        MuscleGroup NVARCHAR(32) NOT NULL,
         AvgHeartRate INT NOT NULL
     );
 END;

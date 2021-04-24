@@ -8,8 +8,4 @@
     <None Include="wwwroot\Images\AddWorkoutButton" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
-
 </Project>
