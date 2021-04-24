@@ -1,6 +1,6 @@
 Param(
-   [string] $Server = "(localdb)\MSSQLLocalDb",
-   [string] $Database = "CIS560"
+   [string] $Server = "mssql.cs.ksu.edu",
+   [string] $Database = "zachterrell57"
 )
 
 # This script requires the SQL Server module for PowerShell.
@@ -28,26 +28,32 @@ Write-Host "Rebuilding database $Database on $Server..."
    In this case, maintain a script to drop all tables.
 #>
 #Write-Host "Dropping tables..."
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\DropTables.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\DropTables.sql"
 
 Write-Host "Creating schema..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Schemas\Person.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Schemas\Project.sql"
 
 Write-Host "Creating tables..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.Person.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.AddressType.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.PersonAddress.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.DailyMetrics.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.Location.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.Weather.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.Enivornment.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.Session.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.MuscleGroup.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.Exercise.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.ExerciseMuscleGroup.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Tables\Project.Workout.sql"
 
-Write-Host "Stored procedures..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.CreatePerson.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrievePersons.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.FetchPerson.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.GetPersonByEmail.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.SavePersonAddress.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
+##Write-Host "Stored procedures..."
+##Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Procedures\Person.CreatePerson.sql"
+##Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Procedures\Person.RetrievePersons.sql"
+##Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Procedures\Person.FetchPerson.sql"
+##Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Procedures\Person.GetPersonByEmail.sql"
+##Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Procedures\Person.SavePersonAddress.sql"
+##Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
 
-Write-Host "Inserting data..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Data\Person.AddressType.sql"
+##Write-Host "Inserting data..."
+##Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "WorkoutTracker\Sql\Data\Person.AddressType.sql"
 
 Write-Host "Rebuild completed."
 Write-Host ""
