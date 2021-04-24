@@ -12,5 +12,10 @@ namespace WorkoutTracker.Model
 
         public MuscleType GroupName { get; set; }
 
+        internal MuscleGroup(int gnID, MuscleType gn)
+        {
+            GroupNameID = gnID;
+            GroupName = gn;
+        }
     }
 }

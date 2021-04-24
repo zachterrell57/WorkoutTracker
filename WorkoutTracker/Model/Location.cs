@@ -10,5 +10,13 @@ namespace WorkoutTracker.Model
         public int LocationID { get; }
 
         public int Name { get; }
+
+        internal Location(int l, int n)
+        {
+            LocationID = l;
+            Name = n;
+        }
+
+
     }
 }

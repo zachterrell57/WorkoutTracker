@@ -20,5 +20,14 @@ namespace WorkoutTracker.Model
 
         public int Rating { get; set; }        
 
+        internal Session(int sID, int mID, int eID, SqlDateTime st, SqlDateTime et, int r)
+        {
+            SessionID = sID;
+            MetricID = mID;
+            EnvironmentID = eID;
+            StartTime = st;
+            EndTime = et;
+            Rating = r;
+        }
     }
 }

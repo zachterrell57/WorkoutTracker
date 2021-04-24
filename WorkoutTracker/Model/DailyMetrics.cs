@@ -16,7 +16,15 @@ namespace WorkoutTracker.Model
 
         public int SleepDuration { get; }
 
-        public int Calories { get; }   
+        public int Calories { get; }
 
+        internal DailyMetrics(int mID, SqlDateTime d, int w, int sd, int c)
+        {
+            MetricID = mID;
+            Date = d;
+            Weight = w;
+            SleepDuration = sd;
+            Calories = c;
+        }
     }
 }
