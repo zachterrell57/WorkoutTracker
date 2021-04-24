@@ -10,7 +10,7 @@ namespace WorkoutTracker.Model
     {
         public int MetricID { get; }
 
-        public SqlDateTime Date;
+        public SqlDateTime Date { get; }
 
         public int Weight { get; }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.SqlTypes;
 
 namespace WorkoutTracker.Model
 {
@@ -13,13 +14,11 @@ namespace WorkoutTracker.Model
 
         public int EnvironmentID { get; set; }
 
-        //public int StartTime { get; set; }
+        public SqlDateTime StartTime { get; set; }
 
-        //public int EndTime { get; set; }
+        public SqlDateTime EndTime { get; set; }
 
-        public int Rating { get; set; }
-
-        //public int Date { get; set; }
+        public int Rating { get; set; }        
 
     }
 }
