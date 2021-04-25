@@ -57,6 +57,7 @@ namespace WorkoutTracker.Pages
         public void OnPost()
         {
             Weight = Request.Form["Weight"];
+
             
         }
     }
