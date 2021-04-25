@@ -17,8 +17,8 @@ namespace WorkoutTracker.Pages
         //[BindProperty]
         public SqlDateTime Date { get; set; }
 
-        [BindProperty(SupportsGet = true)]
-        public int Weight { get; set; }
+        [BindProperty]
+        public string Weight { get; set; } // change back to int
 
         //[BindProperty]
         public int SleepDuration { get; set; }
@@ -56,8 +56,8 @@ namespace WorkoutTracker.Pages
 
         public void OnPost()
         {
-            Weight = Convert.ToInt32(Request.Form["Weight"]);
-            Console.WriteLine(Weight);
+            Weight = Request.Form["Weight"];
+            
         }
     }
 }

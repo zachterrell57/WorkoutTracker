@@ -5,91 +5,93 @@
 @{
     <div class="container">
         <div class="mt-3">
-            <div class="row">
-                <div class="col text-center">
-                    <label style="color: white" for="Location" value="@Model.Location">Location:</label>
-                    <br />
-                    <input type="text" name="Location" />
+            <form method="post">
+                <div class="row">
+                    <div class="col text-center">
+                        <label style="color: white" for="Location" value="@Model.Location">Location:</label>
+                        <br />
+                        <input type="text" name="Location" />
+                    </div>
+                    <div class="col text-center">
+                        <label style="color: white" for="Date" value="@Model.Date">Date:</label>
+                        <br />
+                        <input type="text" name="Date" />
+                    </div>
+                    <div class="col text-center">
+                        <label style="color: white" for="AvgHeartRate">Average Heart Rate:</label>
+                        <br />
+                        <input type="text" name="AvgHeartRate" />
+                    </div>
                 </div>
-                <div class="col text-center">
-                    <label style="color: white" for="Date" value="@Model.Date">Date:</label>
-                    <br />
-                    <input type="text" name="Date" />
+                <div class="row">
+                    <div class="col text-center">
+                        <label style="color: white" for="StartTime" value="@Model.StartTime">Start Time:</label>
+                        <br />
+                        <input type="text" name="StartTime" />
+                    </div>
+                    <div class="col text-center">
+                        <label style="color: white" for="EndTime" value="@Model.EndTime">End Time:</label>
+                        <br />
+                        <input type="text" name="EndTime" />
+                    </div>
+                    <div class="col text-center">
+                        <label style="color: white" for="Duration" value="@Model.Duration">Workout Length:</label>
+                        <br />
+                        <input type="text" name="Duration" />
+                    </div>
                 </div>
-                <div class="col text-center">
-                    <label style="color: white" for="AvgHeartRate">Average Heart Rate:</label>
-                    <br />
-                    <input type="text" name="AvgHeartRate" />
-                </div>             
-            </div>
-            <div class="row">          
-                <div class="col text-center">
-                    <label style="color: white" for="StartTime" value ="@Model.StartTime">Start Time:</label>
-                    <br />
-                    <input type="text" name="StartTime" />
+                <div class="row">
+                    <div class="col text-center">
+                        <label style="color: white" for="Weight">Weight:</label>
+                        <br />
+                        <input type="text" name="Weight" />
+                    </div>
+                    <div class="col text-center">
+                        <label style="color: white" for="SleepDuration" value="@Model.SleepDuration">Sleep Duration:</label>
+                        <br />
+                        <input type="text" name="SleepDuration" />
+                    </div>
+                    <div class="col text-center">
+                        <label style="color: white" for="Calories" value="@Model.Calories">Calories Eaten:</label>
+                        <br />
+                        <input type="text" name="Calories" />
+                    </div>
                 </div>
-                <div class="col text-center">
-                    <label style="color: white" for="EndTime" value ="@Model.EndTime">End Time:</label>
-                    <br />
-                    <input type="text" name="EndTime" />
+
+                <br />
+
+                <div class="row ">
+                    <div style="color: white" class="col text-center">
+                        Were you inside?
+                        <select data-val="true" data-val-required="The isIndoor field is required." id="isIndoor" name="isIndoor" value="@Model.IsIndoor">
+                            <option selected="selected">Pick one</option>
+                            <option value="0">Yes</option>
+                            <option value="1">No</option>
+                        </select>
+                    </div>
+                    <div style="color: white" class="col text-center">
+                        Weather
+                        <select data-val="true" data-val-required="The Weather field is required." id="Weather" name="Weather" value="@Model.WeatherType">
+                            <option selected="selected">Pick one</option>
+                            <option value="0">Sunny</option>
+                            <option value="1">Rainy</option>
+                            <option value="2">Clear</option>
+                            <option value="3">Overcast</option>
+                            <option value="4">Snowing</option>
+                            <option value="5">Hurricane</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col text-center">
-                    <label style="color: white" for="Duration" value ="@Model.Duration">Workout Length:</label>
-                    <br />
-                    <input type="text" name="Duration" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <label style="color: white" for="Weight">Weight:</label>
-                    <br />
-                    <input type="text" name="Weight"/>
-                </div>
-                <div class="col text-center">
-                    <label style="color: white" for="SleepDuration" value="@Model.SleepDuration">Sleep Duration:</label>
-                    <br />
-                    <input type="text" name="SleepDuration" />
-                </div>
-                <div class="col text-center">
-                    <label style="color: white" for="Calories" value="@Model.Calories">Calories Eaten:</label>
-                    <br />
-                    <input type="text" name="Calories" />
-                </div>
-            </div>
-            
-            <br />
-         
-            <div class="row ">
-                <div style="color: white" class="col text-center">
-                    Were you inside?
-                    <select data-val="true" data-val-required="The isIndoor field is required." id="isIndoor" name="isIndoor" value ="@Model.IsIndoor">
-                        <option selected="selected">Pick one</option>
-                        <option value="0">Yes</option>
-                        <option value="1">No</option>
-                    </select>
-                </div>
-                <div style="color: white" class="col text-center">
-                    Weather
-                    <select data-val="true" data-val-required="The Weather field is required." id="Weather" name="Weather" value ="@Model.WeatherType">
-                        <option selected="selected">Pick one</option>
-                        <option value="0">Sunny</option>
-                        <option value="1">Rainy</option>
-                        <option value="2">Clear</option>
-                        <option value="3">Overcast</option>
-                        <option value="4">Snowing</option>
-                        <option value="5">Hurricane</option>
-                    </select>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col text-center">
-                    <label>&nbsp;</label>
-                    <form method="post">
+                <br />
+                <div class="row">
+                    <div class="col text-center">
+                        <label>&nbsp;</label>
+
                         <input type="submit" value="Submit" class="submit" @*onclick="history.back()"*@ /> @*commented out for testing*@
-                    </form>
+
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 }
