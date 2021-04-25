@@ -10,6 +10,5 @@ namespace WorkoutTracker.Model
         UpperBody,
         LowerBody,
         Cardio
-
     }
 }
