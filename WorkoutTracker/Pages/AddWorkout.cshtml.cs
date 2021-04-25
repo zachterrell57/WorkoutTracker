@@ -43,38 +43,38 @@ namespace WorkoutTracker.Pages
         public void OnPost()
         {
             string location = Request.Form["Location"];
-            if(location != null)
+            if (location != null)
             {
                 Location = location;
             }
 
-            
+
             string date = Convert.ToString(Request.Form["Date"]);
-            if(date != null)
+            if (date != null)
             {
                 Date = date;
             }
-            
+
             double weight = Convert.ToDouble(Request.Form["Weight"]);
-            if(weight != 0)
+            if (weight != 0)
             {
                 Weight = weight;
             }
 
             double sleepDuration = Convert.ToDouble(Request.Form["SleepDuration"]);
-            if(sleepDuration != 0)
+            if (sleepDuration != 0)
             {
                 SleepDuration = sleepDuration;
             }
 
             double calories = Convert.ToDouble(Request.Form["Calories"]);
-            if(calories != 0)
+            if (calories != 0)
             {
                 Calories = calories;
             }
 
             string startTime = Convert.ToString(Request.Form["StartTime"]);
-            if(startTime != null)
+            if (startTime != null)
             {
                 StartTime = startTime;
             }
@@ -86,19 +86,19 @@ namespace WorkoutTracker.Pages
             }
 
             double rating = Convert.ToDouble(Request.Form["Rating"]);
-            if(rating != 0)
+            if (rating != 0)
             {
                 Rating = rating;
             }
 
             double duration = Convert.ToDouble(Request.Form["Duration"]);
-            if(duration != 0)
+            if (duration != 0)
             {
                 Duration = duration;
             }
 
             double avgHeartRate = Convert.ToDouble(Request.Form["AvgHeartRate"]);
-            if(avgHeartRate != 0)
+            if (avgHeartRate != 0)
             {
                 AvgHeartRate = avgHeartRate;
             }
