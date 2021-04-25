@@ -41,9 +41,9 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <label style="color: white" for="Weight" value="@Model.Weight">Weight:</label>
+                    <label style="color: white" for="Weight">Weight:</label>
                     <br />
-                    <input type="text" name="Weight" />
+                    <input type="text" name="Weight"/>
                 </div>
                 <div class="col text-center">
                     <label style="color: white" for="SleepDuration" value="@Model.SleepDuration">Sleep Duration:</label>
@@ -85,9 +85,9 @@
             <div class="row">
                 <div class="col text-center">
                     <label>&nbsp;</label>
-                    
-                    <input type="submit" href="" value="Submit" class="submit" onclick="history.back()" />
-                 
+                    <form method="post">
+                        <input type="submit" value="Submit" class="submit" @*onclick="history.back()"*@ /> @*commented out for testing*@
+                    </form>
                 </div>
             </div>
         </div>

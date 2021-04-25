@@ -11,44 +11,44 @@ namespace WorkoutTracker.Pages
 {
     public class AddWorkoutModel : PageModel
     {
-        [BindProperty] //(SupportsGet = true) could need this
+        //[BindProperty] //(SupportsGet = true) could need this
         public string Location { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public SqlDateTime Date { get; set; }
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public int Weight { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public int SleepDuration { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public int Calories { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public SqlDateTime StartTime { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public SqlDateTime EndTime { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public int Rating { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public int Duration { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public int AvgHeartRate { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public bool IsIndoor { get; set; }
 
-        [BindProperty]
+        //[BindProperty]
         public WeatherType WeatherType { get; set;}
 
-        [BindProperty] 
-        public int Name { get; set; }
+        //[BindProperty] 
+        public int EnvironmentName { get; set; }
 
         public void OnGet()
         {
@@ -56,7 +56,8 @@ namespace WorkoutTracker.Pages
 
         public void OnPost()
         {
-
+            Weight = Convert.ToInt32(Request.Form["Weight"]);
+            Console.WriteLine(Weight);
         }
     }
 }
