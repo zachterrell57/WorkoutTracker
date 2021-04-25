@@ -13,42 +13,28 @@ namespace WorkoutTracker.Pages
     {
         //[BindProperty] //(SupportsGet = true) could need this
         public string Location { get; set; }
+        
+        public string Date { get; set; }
+        
+        public double Weight { get; set; }
+       
+        public double SleepDuration { get; set; }
+        
+        public double Calories { get; set; }
+        
+        public string StartTime { get; set; }
 
-        //[BindProperty]
-        public SqlDateTime Date { get; set; }
-
-        [BindProperty]
-        public string Weight { get; set; } // change back to int
-
-        //[BindProperty]
-        public int SleepDuration { get; set; }
-
-        //[BindProperty]
-        public int Calories { get; set; }
-
-        //[BindProperty]
-        public SqlDateTime StartTime { get; set; }
-
-        //[BindProperty]
-        public SqlDateTime EndTime { get; set; }
-
-        //[BindProperty]
-        public int Rating { get; set; }
-
-        //[BindProperty]
-        public int Duration { get; set; }
-
-        //[BindProperty]
-        public int AvgHeartRate { get; set; }
-
-        //[BindProperty]
+        public string EndTime { get; set; }
+        
+        public double Rating { get; set; }
+        
+        public double Duration { get; set; }
+        
+        public double AvgHeartRate { get; set; }
+        
         public bool IsIndoor { get; set; }
-
-        //[BindProperty]
-        public WeatherType WeatherType { get; set;}
-
-        //[BindProperty] 
-        public int EnvironmentName { get; set; }
+        
+        public WeatherType WeatherType { get; set;}   
 
         public void OnGet()
         {
@@ -56,8 +42,108 @@ namespace WorkoutTracker.Pages
 
         public void OnPost()
         {
-            Weight = Request.Form["Weight"];
+            string location = Request.Form["Location"];
+            if(location != null)
+            {
+                Location = location;
+            }
+
             
+            string date = Convert.ToString(Request.Form["Date"]);
+            if(date != null)
+            {
+                Date = date;
+            }
+            
+            double weight = Convert.ToDouble(Request.Form["Weight"]);
+            if(weight != 0)
+            {
+                Weight = weight;
+            }
+
+            double sleepDuration = Convert.ToDouble(Request.Form["SleepDuration"]);
+            if(sleepDuration != 0)
+            {
+                SleepDuration = sleepDuration;
+            }
+
+            double calories = Convert.ToDouble(Request.Form["Calories"]);
+            if(calories != 0)
+            {
+                Calories = calories;
+            }
+
+            string startTime = Convert.ToString(Request.Form["StartTime"]);
+            if(startTime != null)
+            {
+                StartTime = startTime;
+            }
+
+            string endTime = Convert.ToString(Request.Form["EndTime"]);
+            if (endTime != null)
+            {
+                EndTime = endTime;
+            }
+
+            double rating = Convert.ToDouble(Request.Form["Rating"]);
+            if(rating != 0)
+            {
+                Rating = rating;
+            }
+
+            double duration = Convert.ToDouble(Request.Form["Duration"]);
+            if(duration != 0)
+            {
+                Duration = duration;
+            }
+
+            double avgHeartRate = Convert.ToDouble(Request.Form["AvgHeartRate"]);
+            if(avgHeartRate != 0)
+            {
+                AvgHeartRate = avgHeartRate;
+            }
+
+            string isindoor = Request.Form["isIndoor"];
+            if (isindoor != null)
+            {
+                if (isindoor == "Yes")
+                {
+                    IsIndoor = true;
+                }
+                else
+                {
+                    IsIndoor = false;
+                }
+            }
+
+            string weather = Request.Form["Weather"];
+            if (weather != null)
+            {
+                if (weather == "Sunny")
+                {
+                    WeatherType = WeatherType.Sunny;
+                }
+                else if (weather == "Rainy")
+                {
+                    WeatherType = WeatherType.Rainy;
+                }
+                else if (weather == "Clear")
+                {
+                    WeatherType = WeatherType.Clear;
+                }
+                else if (weather == "Overcast")
+                {
+                    WeatherType = WeatherType.Overcast;
+                }
+                else if (weather == "Snowing")
+                {
+                    WeatherType = WeatherType.Snowing;
+                }
+                else if (weather == "Hurricane")
+                {
+                    WeatherType = WeatherType.Hurricane;
+                }
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace WorkoutTracker.Model
     {
         public int MetricID { get; }
 
-        public SqlDateTime Date { get; }
+        public string Date { get; }
 
         public int Weight { get; }
 
@@ -18,7 +18,7 @@ namespace WorkoutTracker.Model
 
         public int Calories { get; }
 
-        internal DailyMetrics(int mID, SqlDateTime d, int w, int sd, int c)
+        internal DailyMetrics(int mID, string d, int w, int sd, int c)
         {
             MetricID = mID;
             Date = d;
