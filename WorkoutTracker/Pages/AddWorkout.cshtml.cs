@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlTypes;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WorkoutTracker.Model;
+using System.Transactions;
 
 namespace WorkoutTracker.Pages
 {
     public class AddWorkoutModel : PageModel
     {
+
+        const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=CIS560;Integrated Security=SSPI;";
+
+        private IDailyMetricsRepository dailyMetricsRepo;
+        private IEnvironmentRepository environmentRepo;
+        private ILocationRepository locationRepo;
+        private ISessionRepository sessionRepo;
+        private IWeatherRepository weatherRepo;
+        private IWorkoutRepository workoutRepo;
+
+        private TransactionScope transaction;
+
+
         //[BindProperty] //(SupportsGet = true) could need this
         public string Location { get; set; }
         
@@ -144,6 +157,27 @@ namespace WorkoutTracker.Pages
                     WeatherType = WeatherType.Hurricane;
                 }
             }
+
+            AddWorkout();
         }
-    }
+
+        private void AddWorkout()
+        {
+            transaction = new TransactionScope();
+
+            dailyMetricsRepo = new SqlDailyMetricsRepository(connectionString);
+            environmentRepo = new SqlEnvironmentRepository(connectionString);
+            locationRepo = new SqlLocationRepository(connectionString);
+            sessionRepo = new SqlSessionRepository(connectionString);
+            weatherRepo = new SqlWeatherRepository(connectionString);
+            workoutRepo = new SqlWorkoutRepository(connectionString);
+
+            var dailyMetric = dailyMetricsRepo.CreateDailyMetrics(Date, Weight, SleepDuration, Calories);
+            var enviroment = environmentRepo.CreateEnvironment(IsIndoor);
+            var location = locationRepo.CreateLocation(Location);
+            var session = sessionRepo.CreateSession(StartTime, EndTime, Rating);
+            var weather = weatherRepo.CreateWeather(WeatherType);
+            var workout = workoutRepo.CreateWorkout(Duration, AvgHeartRate);
+        }
+    }   
 }
