@@ -12,6 +12,6 @@ VALUES(@Date, @Weight, @SleepDuration, @Calories);
 
 SET @SessionID = SCOPE_IDENTITY();
 SET @MetricID = SCOPE_IDENTITY();
-SET @EnvironmentID = SCOPE_IDENTITY();
+SET @EnvironmentID = SCOPE_IDENTITY(); 
 GO
 
