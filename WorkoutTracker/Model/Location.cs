@@ -8,9 +8,9 @@ namespace WorkoutTracker.Model
     public class Location
     {
         public int LocationID { get; }
-        public int Name { get; }
+        public string Name { get; }
 
-        internal Location(int l, int n)
+        internal Location(int l, string n)
         {
             LocationID = l;
             Name = n;

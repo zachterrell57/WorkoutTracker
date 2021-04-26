@@ -10,9 +10,9 @@ namespace WorkoutTracker.Model
         public int EnvironmentID { get; }
         public int WeatherID { get; }
         public int LocationID { get;}
-        public bool IsIndoor { get;}
+        public int IsIndoor { get;}
 
-        internal Environment(int eID, int wID, int lID, bool ii)
+        internal Environment(int eID, int wID, int lID, int ii)
         {
             EnvironmentID = eID;
             WeatherID = wID;
