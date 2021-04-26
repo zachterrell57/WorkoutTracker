@@ -1,6 +1,6 @@
 CREATE OR ALTER PROCEDURE Project.CreateWeather
    @Type NVARCHAR(32),
-   @WeatherID INT 
+   @WeatherID INT OUTPUT
 AS
 
 INSERT Project.DailyMetrics(Type)

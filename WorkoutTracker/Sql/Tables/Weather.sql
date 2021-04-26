@@ -3,6 +3,6 @@ BEGIN
 	CREATE TABLE Project.Weather
 	(   
 		WeatherID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
-		Type NVARCHAR(32) NOT NULL
+		WeatherType NVARCHAR(32) NOT NULL
 	);
 END;

@@ -152,7 +152,7 @@ namespace WorkoutTracker.Pages
                 {
                     WeatherType = WeatherType.Snowing;
                 }
-                else if (weather == "Hurricane")
+                else
                 {
                     WeatherType = WeatherType.Hurricane;
                 }
@@ -165,18 +165,19 @@ namespace WorkoutTracker.Pages
         {
             transaction = new TransactionScope();
 
-            dailyMetricsRepo = new SqlDailyMetricsRepository(connectionString);
-            environmentRepo = new SqlEnvironmentRepository(connectionString);
+           
+            dailyMetricsRepo = new SqlDailyMetricsRepository(connectionString);         
             locationRepo = new SqlLocationRepository(connectionString);
-            sessionRepo = new SqlSessionRepository(connectionString);
             weatherRepo = new SqlWeatherRepository(connectionString);
+            environmentRepo = new SqlEnvironmentRepository(connectionString);
+            sessionRepo = new SqlSessionRepository(connectionString);          
             workoutRepo = new SqlWorkoutRepository(connectionString);
 
-            var dailyMetric = dailyMetricsRepo.CreateDailyMetrics(Date, Weight, SleepDuration, Calories);
-            var enviroment = environmentRepo.CreateEnvironment(IsIndoor);
+            var dailyMetric = dailyMetricsRepo.CreateDailyMetrics(Date, Weight, SleepDuration, Calories);           
             var location = locationRepo.CreateLocation(Location);
-            var session = sessionRepo.CreateSession(StartTime, EndTime, Rating);
             var weather = weatherRepo.CreateWeather(WeatherType);
+            var enviroment = environmentRepo.CreateEnvironment(IsIndoor);           
+            var session = sessionRepo.CreateSession(StartTime, EndTime, Rating);
             var workout = workoutRepo.CreateWorkout(Duration, AvgHeartRate);
         }
     }   

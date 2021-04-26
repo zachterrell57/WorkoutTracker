@@ -17,8 +17,8 @@ namespace WorkoutTracker
 
         public Model.Environment CreateEnvironment(int IsIndoor)
         {
-            if (IsIndoor == 0)
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(IsIndoor));
+            //if (IsIndoor != 0 || IsIndoor != 1)
+            //    throw new ArgumentException("The parameter cannot be null or empty.", nameof(IsIndoor));
 
             var d = new CreateEnvironmentDataDelegate(IsIndoor);
             return executor.ExecuteNonQuery(d);

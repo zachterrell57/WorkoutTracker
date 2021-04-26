@@ -7,8 +7,8 @@ CREATE OR ALTER PROCEDURE Project.CreateSession
    @EnvironmentID INT OUTPUT 
 AS
 
-INSERT Project.DailyMetrics(Date, Weight, SleepDuration, Calories)
-VALUES(@Date, @Weight, @SleepDuration, @Calories);
+INSERT Project.CreateSession(StartTime, EndTime, Rating)
+VALUES(@StartTime, @EndTime, @Rating);
 
 SET @SessionID = SCOPE_IDENTITY(); 
 SET @MetricID = SCOPE_IDENTITY(); 

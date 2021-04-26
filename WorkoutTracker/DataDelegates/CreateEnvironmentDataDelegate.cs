@@ -19,7 +19,7 @@ namespace WorkoutTracker
         {
             base.PrepareCommand(command);
 
-            var p = command.Parameters.Add("Date", SqlDbType.Int);
+            var p = command.Parameters.Add("IsIndoor", SqlDbType.Int);
             p.Value = IsIndoor;
 
             p = command.Parameters.Add("EnvironmentID", SqlDbType.Int);
