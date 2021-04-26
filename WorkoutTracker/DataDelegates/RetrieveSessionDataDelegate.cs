@@ -2,43 +2,43 @@
 using DataAccess;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace WorkoutTracker
 {
-    internal class RetrieveSessionDataDelegate : NonQueryDataDelegate<Session>
+    internal class RetrieveSessionDataDelegate : DataReaderDelegate<IReadOnlyList<Session>>
     {
-        private readonly int ;
-        private readonly double Duration;
-        private readonly double AvgHeartRate;
+        private readonly int SessionID;
 
-        public CreateSessionDataDelegate(int SessionID, double Duration, double AvgHeartRate)
-           : base("Project.CreateWorkout")
+        public RetrieveSessionDataDelegate(int SessionID)
+           : base("Project.RetrieveSession")
         {
             this.SessionID = SessionID;
-            this.Duration = Duration;
-            this.AvgHeartRate = AvgHeartRate;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            var p = command.Parameters.Add("Duration", SqlDbType.Float);
-            p.Value = Duration;
-
-            p = command.Parameters.Add("AvgHeartRate", SqlDbType.Float);
-            p.Value = AvgHeartRate;
-
-            p = command.Parameters.Add("SessionID", SqlDbType.Int);
+            var p = command.Parameters.Add("SessionID", SqlDbType.Int);
             p.Value = SessionID;
-
-            p = command.Parameters.Add("WorkoutID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;              
         }
-
-        public override Workout Translate(SqlCommand command)
+        public override IReadOnlyList<Session> Translate(SqlCommand command, IDataRowReader reader)
         {
-            return new Workout((int)command.Parameters["WorkoutID"].Value, SessionID, Duration, AvgHeartRate);
+            var session = new List<Session>();
+
+            while (reader.Read())
+            {
+                session.Add(new Session(
+                   reader.GetInt32("SessionID"),
+                   reader.GetInt32("MetricID"), //dont know how to get fk
+                   reader.GetInt32("EnvironmentID"),
+                   reader.GetString("StartTime"),
+                   reader.GetString("EndTime"),
+                   reader.GetInt32("Rating")));  // doubles? 
+            }
+
+            return session;
         }
     }
 }
