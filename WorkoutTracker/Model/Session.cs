@@ -13,9 +13,9 @@ namespace WorkoutTracker.Model
         public int EnvironmentID { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
-        public int Rating { get; set; }        
+        public double Rating { get; set; }        
 
-        internal Session(int sID, int mID, int eID, string st, string et, int r)
+        internal Session(int sID, int mID, int eID, string st, string et, double r)
         {
             SessionID = sID;
             MetricID = mID;

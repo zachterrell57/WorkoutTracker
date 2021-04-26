@@ -32,7 +32,7 @@ namespace WorkoutTracker.Pages
         
         public double AvgHeartRate { get; set; }
         
-        public bool IsIndoor { get; set; }
+        public int IsIndoor { get; set; }
         
         public WeatherType WeatherType { get; set;}   
 
@@ -108,11 +108,11 @@ namespace WorkoutTracker.Pages
             {
                 if (isindoor == "Yes")
                 {
-                    IsIndoor = true;
+                    IsIndoor = 1;
                 }
                 else
                 {
-                    IsIndoor = false;
+                    IsIndoor = 0;
                 }
             }
 
