@@ -10,8 +10,8 @@ AS
 INSERT Project.DailyMetrics(Date, Weight, SleepDuration, Calories)
 VALUES(@Date, @Weight, @SleepDuration, @Calories);
 
-SET @SessionID = SCOPE_IDENTITY();
-SET @MetricID = SCOPE_IDENTITY();
+SET @SessionID = SCOPE_IDENTITY(); 
+SET @MetricID = SCOPE_IDENTITY(); 
 SET @EnvironmentID = SCOPE_IDENTITY(); 
 GO
 
