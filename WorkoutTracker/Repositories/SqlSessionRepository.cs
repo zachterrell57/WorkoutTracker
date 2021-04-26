@@ -32,7 +32,7 @@ namespace WorkoutTracker
         //public Person FetchPerson(int personId)
         //{
         //    var d = new FetchPersonDataDelegate(personId);
-        //    return executor.ExecuteReader(d);
+        //    return executor.ExecuteReader(d); 
         //}
 
         //public Person GetPerson(string email)
