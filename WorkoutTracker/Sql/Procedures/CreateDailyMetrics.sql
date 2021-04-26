@@ -3,7 +3,7 @@ CREATE OR ALTER PROCEDURE Project.CreateDailyMetrics
    @Weight FLOAT,
    @SleepDuration FLOAT,
    @Calories FLOAT,
-   @MetricID FLOAT OUTPUT
+   @MetricID INT OUTPUT
 AS
 
 INSERT Project.DailyMetrics(Date, Weight, SleepDuration, Calories)
