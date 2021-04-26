@@ -1,6 +1,6 @@
 [cmdletbinding()]
 Param(
-  [string] $Server = "mssql.cs.ksu.edu",
+  [string] $Server = "ZACHTERRELL5AA7\SQLEXPRESS",
   [string] $Database
 )
 

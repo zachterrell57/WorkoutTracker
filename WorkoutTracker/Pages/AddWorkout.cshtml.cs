@@ -12,7 +12,7 @@ namespace WorkoutTracker.Pages
     public class AddWorkoutModel : PageModel
     {
 
-        const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=CIS560;Integrated Security=SSPI;";
+        const string connectionString = @"Server=ZACHTERRELL5AA7\SQLEXPRESS;Database=ProjectDatabase;Integrated Security=SSPI;";
 
         private IDailyMetricsRepository dailyMetricsRepo;
         private IEnvironmentRepository environmentRepo;
