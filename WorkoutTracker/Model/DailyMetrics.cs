@@ -12,13 +12,13 @@ namespace WorkoutTracker.Model
 
         public string Date { get; }
 
-        public int Weight { get; }
+        public double Weight { get; }
 
-        public int SleepDuration { get; }
+        public double SleepDuration { get; }
 
-        public int Calories { get; }
+        public double Calories { get; }
 
-        internal DailyMetrics(int mID, string d, int w, int sd, int c)
+        internal DailyMetrics(int mID, string d, double w, double sd, double c)
         {
             MetricID = mID;
             Date = d;
