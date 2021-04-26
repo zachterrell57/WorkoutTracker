@@ -33,8 +33,8 @@ namespace DataAccess
 
                   connection.Open();
 
-                  int i = command.ExecuteNonQuery();
-                        Console.WriteLine("test");
+                  command.ExecuteNonQuery();
+                        
                   transaction.Complete();
                }
             }
@@ -54,7 +54,7 @@ namespace DataAccess
                   connection.Open();
 
                   command.ExecuteNonQuery();
-
+                        
                   transaction.Complete();
 
                   return dataDelegate.Translate(command);

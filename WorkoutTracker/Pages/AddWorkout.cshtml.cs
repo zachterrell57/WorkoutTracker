@@ -173,12 +173,16 @@ namespace WorkoutTracker.Pages
             sessionRepo = new SqlSessionRepository(connectionString);          
             workoutRepo = new SqlWorkoutRepository(connectionString);
 
+            transaction.Dispose();
+
             var dailyMetric = dailyMetricsRepo.CreateDailyMetrics(Date, Weight, SleepDuration, Calories);           
             var location = locationRepo.CreateLocation(Location);
             var weather = weatherRepo.CreateWeather(WeatherType);       
             var enviroment = environmentRepo.CreateEnvironment(weather.WeatherID, location.LocationID, IsIndoor);           
             var session = sessionRepo.CreateSession(dailyMetric.MetricID, enviroment.EnvironmentID, StartTime, EndTime, Rating);
             var workout = workoutRepo.CreateWorkout(session.SessionID, Duration, AvgHeartRate);
+
+            
         }
     }   
 }
