@@ -7,9 +7,9 @@ namespace WorkoutTracker
 {
     internal class CreateEnvironmentDataDelegate : NonQueryDataDelegate<Environment>
     {      
-        private readonly bool IsIndoor;
+        private readonly int IsIndoor;
 
-        public CreateEnvironmentDataDelegate(bool IsIndoor)
+        public CreateEnvironmentDataDelegate(int IsIndoor)
            : base("Project.CreateEnvironment")
         {
             this.IsIndoor = IsIndoor;        
