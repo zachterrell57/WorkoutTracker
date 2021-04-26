@@ -9,15 +9,15 @@ namespace WorkoutTracker.Model
     {
         public int WorkoutID { get; }
         public int SessionID { get; }
-        public int GroupNameID { get; }
-        public int Duration { get; }
-        public int AvgHeartRate { get; }
+        //public int GroupNameID { get; }
+        public double Duration { get; }
+        public double AvgHeartRate { get; }
 
-        internal Workout(int wID, int sID, int gnID, int d, int ahr)
+        internal Workout(int wID, int sID, double d, double ahr) //int gnID,
         {
             WorkoutID = wID;
             SessionID = sID;
-            GroupNameID = gnID;
+            //GroupNameID = gnID;
             Duration = d;
             AvgHeartRate = ahr;
         }
