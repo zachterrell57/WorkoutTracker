@@ -33,8 +33,8 @@ namespace DataAccess
 
                   connection.Open();
 
-                  command.ExecuteNonQuery();
-
+                  int i = command.ExecuteNonQuery();
+                        Console.WriteLine("test");
                   transaction.Complete();
                }
             }
