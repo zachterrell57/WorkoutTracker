@@ -3,8 +3,8 @@ CREATE OR ALTER PROCEDURE Project.CreateWeather
    @WeatherID INT OUTPUT
 AS
 
-INSERT Project.DailyMetrics(Type)
-VALUES(@Type);
+INSERT Project.DailyMetrics(WeatherType)
+VALUES(@Weathertype);
 
 SET @WeatherID = SCOPE_IDENTITY();
 GO
