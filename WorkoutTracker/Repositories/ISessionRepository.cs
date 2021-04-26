@@ -45,6 +45,6 @@ namespace WorkoutTracker
         /// <returns>
         /// The resulting instance of <see cref="Person"/>.
         /// </returns>
-        DailyMetrics CreateSession(string StartTime, string EndTime, double Rating);
+        Session CreateSession(string StartTime, string EndTime, double Rating);
     }
 }
