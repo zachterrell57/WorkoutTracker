@@ -14,7 +14,7 @@ namespace WorkoutTracker
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Session CreateSession(string StartTime, string EndTime, double Rating)
+        public Session CreateSession(int MetricID, int EnvironmentID, string StartTime, string EndTime, double Rating)
         {
             if (string.IsNullOrWhiteSpace(StartTime))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(StartTime));
@@ -25,7 +25,7 @@ namespace WorkoutTracker
             if (Rating == 0)
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(Rating));
 
-            var d = new CreateSessionDataDelegate(StartTime, EndTime, Rating);
+            var d = new CreateSessionDataDelegate(MetricID, EnvironmentID, StartTime, EndTime, Rating);
             return executor.ExecuteNonQuery(d);
         }
 

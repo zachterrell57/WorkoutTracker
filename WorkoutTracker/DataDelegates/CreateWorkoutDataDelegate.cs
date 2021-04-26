@@ -7,12 +7,14 @@ namespace WorkoutTracker
 {
     internal class CreateWorkoutDataDelegate : NonQueryDataDelegate<Workout>
     {
+        private readonly int SessionID;
         private readonly double Duration;
         private readonly double AvgHeartRate;
 
-        public CreateWorkoutDataDelegate(double Duration, double AvgHeartRate)
+        public CreateWorkoutDataDelegate(int SessionID, double Duration, double AvgHeartRate)
            : base("Project.CreateWorkout")
         {
+            this.SessionID = SessionID;
             this.Duration = Duration;
             this.AvgHeartRate = AvgHeartRate;
         }
@@ -27,19 +29,16 @@ namespace WorkoutTracker
             p = command.Parameters.Add("AvgHeartRate", SqlDbType.Float);
             p.Value = AvgHeartRate;
 
-            p = command.Parameters.Add("WorkoutID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
-
             p = command.Parameters.Add("SessionID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
+            p.Value = SessionID;
 
-            //p = command.Parameters.Add("GroupNameID", SqlDbType.Int);
-           // p.Direction = ParameterDirection.Output;
+            p = command.Parameters.Add("WorkoutID", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;              
         }
 
         public override Workout Translate(SqlCommand command)
         {
-            return new Workout((int)command.Parameters["WorkoutID"].Value, (int)command.Parameters["SessionID"].Value, Duration, AvgHeartRate);
+            return new Workout((int)command.Parameters["WorkoutID"].Value, SessionID, Duration, AvgHeartRate);
         }
     }
 }

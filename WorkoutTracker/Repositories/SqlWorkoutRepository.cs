@@ -14,7 +14,7 @@ namespace WorkoutTracker
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Workout CreateWorkout(double Duration, double AvgHeartRate)
+        public Workout CreateWorkout(int SessionID, double Duration, double AvgHeartRate)
         {
             if (Duration == 0)
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(Duration));
@@ -22,7 +22,7 @@ namespace WorkoutTracker
             if (AvgHeartRate == 0)
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(AvgHeartRate));
 
-            var d = new CreateWorkoutDataDelegate(Duration, AvgHeartRate);
+            var d = new CreateWorkoutDataDelegate(SessionID, Duration, AvgHeartRate);
             return executor.ExecuteNonQuery(d);
         }
 

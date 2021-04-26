@@ -18,7 +18,6 @@ namespace WorkoutTracker.Model
             WeatherID = wID;
             LocationID = lID;
             IsIndoor = ii;
-
         }
     }
 }

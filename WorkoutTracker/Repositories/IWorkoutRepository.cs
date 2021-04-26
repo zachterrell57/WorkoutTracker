@@ -45,6 +45,6 @@ namespace WorkoutTracker
         /// <returns>
         /// The resulting instance of <see cref="Person"/>.
         /// </returns>
-        Workout CreateWorkout(double Duration, double AvgHeartRate);
+        Workout CreateWorkout(int SessionID, double Duration, double AvgHeartRate);
     }
 }

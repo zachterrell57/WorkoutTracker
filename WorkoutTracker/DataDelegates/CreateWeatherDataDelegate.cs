@@ -20,7 +20,7 @@ namespace WorkoutTracker
             base.PrepareCommand(command);
 
             var p = command.Parameters.Add("WeatherType", SqlDbType.NVarChar);
-            p.Value = WeatherType; 
+            p.Value = WeatherType;
 
             p = command.Parameters.Add("WeatherID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;

@@ -15,10 +15,10 @@ namespace WorkoutTracker.Pages
         const string connectionString = @"Server=ZACHTERRELL5AA7\SQLEXPRESS;Database=ProjectDatabase;Integrated Security=SSPI;";
 
         private IDailyMetricsRepository dailyMetricsRepo;
-        private IEnvironmentRepository environmentRepo;
-        private ILocationRepository locationRepo;
-        private ISessionRepository sessionRepo;
         private IWeatherRepository weatherRepo;
+        private ILocationRepository locationRepo;
+        private IEnvironmentRepository environmentRepo;        
+        private ISessionRepository sessionRepo;       
         private IWorkoutRepository workoutRepo;
 
         private TransactionScope transaction;
@@ -175,10 +175,10 @@ namespace WorkoutTracker.Pages
 
             var dailyMetric = dailyMetricsRepo.CreateDailyMetrics(Date, Weight, SleepDuration, Calories);           
             var location = locationRepo.CreateLocation(Location);
-            var weather = weatherRepo.CreateWeather(WeatherType);
-            var enviroment = environmentRepo.CreateEnvironment(IsIndoor);           
-            var session = sessionRepo.CreateSession(StartTime, EndTime, Rating);
-            var workout = workoutRepo.CreateWorkout(Duration, AvgHeartRate);
+            var weather = weatherRepo.CreateWeather(WeatherType);       
+            var enviroment = environmentRepo.CreateEnvironment(weather.WeatherID, location.LocationID, IsIndoor);           
+            var session = sessionRepo.CreateSession(dailyMetric.MetricID, enviroment.EnvironmentID, StartTime, EndTime, Rating);
+            var workout = workoutRepo.CreateWorkout(session.SessionID, Duration, AvgHeartRate);
         }
     }   
 }

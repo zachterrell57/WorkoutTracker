@@ -7,12 +7,16 @@ namespace WorkoutTracker
 {
     internal class CreateEnvironmentDataDelegate : NonQueryDataDelegate<Environment>
     {      
+        private readonly int WeatherID;
+        private readonly int LocationID;
         private readonly int IsIndoor;
 
-        public CreateEnvironmentDataDelegate(int IsIndoor)
+        public CreateEnvironmentDataDelegate(int WeatherID, int LocationID, int IsIndoor)
            : base("Project.CreateEnvironment")
-        {
-            this.IsIndoor = IsIndoor;        
+        {        
+            this.WeatherID = WeatherID;
+            this.LocationID = LocationID;
+            this.IsIndoor = IsIndoor;
         }
 
         public override void PrepareCommand(SqlCommand command)
@@ -22,20 +26,20 @@ namespace WorkoutTracker
             var p = command.Parameters.Add("IsIndoor", SqlDbType.Int);
             p.Value = IsIndoor;
 
-            p = command.Parameters.Add("EnvironmentID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
-
             p = command.Parameters.Add("WeatherID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
+            p.Value = WeatherID;
 
             p = command.Parameters.Add("LocationID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
+            p.Value = LocationID;
+
+            p = command.Parameters.Add("EnvironmentID", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;          
         }
 
         public override Environment Translate(SqlCommand command)
         {
-            return new Environment((int)command.Parameters["EnvironmentID"].Value, 
-                (int)command.Parameters["WeatherID"].Value, (int)command.Parameters["LocationID"].Value, IsIndoor);
+            return new Environment((int)command.Parameters["EnvironmentID"].Value,
+                WeatherID, LocationID, IsIndoor);
         }
     }
 }

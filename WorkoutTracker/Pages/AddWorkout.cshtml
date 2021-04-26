@@ -59,9 +59,8 @@
                     </div>
                 </div>
 
-                <br />
-
                 <div class="row ">
+                    <br />
                     <div style="color: white" class="col text-center">
                         Were you inside?
                         <select data-val="true" data-val-required="The isIndoor field is required." id="isIndoor" name="isIndoor" value="@Model.IsIndoor">
@@ -70,6 +69,12 @@
                             <option value="1">No</option>
                         </select>
                     </div>
+                    <div class="col text-center">
+                        <label style="color: white" for="Rating">Rating:</label>
+                        <br />
+                        <input type="text" name="Rating" />
+                    </div>
+                    <br />
                     <div style="color: white" class="col text-center">
                         Weather
                         <select data-val="true" data-val-required="The Weather field is required." id="Weather" name="Weather" value="@Model.WeatherType">

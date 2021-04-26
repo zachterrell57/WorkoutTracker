@@ -45,6 +45,6 @@ namespace WorkoutTracker
         /// <returns>
         /// The resulting instance of <see cref="Person"/>.
         /// </returns>
-        Environment CreateEnvironment(int IsIndoor);
+        Environment CreateEnvironment(int WeatherID, int LocationID, int IsIndoor);
     }
 }

@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS Project.DailyMetrics;
 
 CREATE TABLE Project.DailyMetrics
 (   
-    MetricID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
+    MetricID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
     Date NVARCHAR(32) NOT NULL ,
     Weight FLOAT NOT NULL,     
     SleepDuration FLOAT NOT NULL, 
@@ -21,17 +21,17 @@ CREATE TABLE Project.DailyMetrics
     );
 
 
-CREATE TABLE Project.Weather
-(   
-	WeatherID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
-	WeatherType NVARCHAR(32) NOT NULL
-);
+--CREATE TABLE Project.Weather
+--(   
+--	WeatherID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
+--	WeatherType NVARCHAR(32) NOT NULL
+--);
 
 
 CREATE TABLE Project.Environment
 (   
     EnvironmentID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
-    WeatherID INT NOT NULL FOREIGN KEY REFERENCES Project.Weather(WeatherID),
+    --WeatherID INT NOT NULL FOREIGN KEY REFERENCES Project.Weather(WeatherID),
     LocationID INT NOT NULL FOREIGN KEY REFERENCES Project.Location(LocationID), 
     IsIndoor INT 
 );
@@ -56,3 +56,4 @@ CREATE TABLE Project.Workout
     --MuscleGroup NVARCHAR(32) NOT NULL,--
     AvgHeartRate FLOAT NOT NULL
 );
+
