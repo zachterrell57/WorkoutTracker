@@ -12,6 +12,10 @@ namespace WorkoutTracker.Model
         public int LocationID { get;}
         public int IsIndoor { get;}
 
+    
+
+
+
         internal Environment(int eID, int wID, int lID, int ii)
         {
             EnvironmentID = eID;

@@ -1,7 +1,7 @@
 ﻿@page
 @model WorkoutTracker.Pages.ArchiveModel
 @{
-
+@using WorkoutTracker.Model
 
     @* Archive Page *@
 
@@ -35,38 +35,41 @@
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                    <th scope="col">This</th>
-                    <th scope="col">That</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Sleep Duration</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">End Time</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Avg Heart Rate</th>
+                    <th scope="col">Indoor(0)/Outdoor(1)</th>
+                    <th scope="col">Weather</th>
                 </tr>
             </thead>
             <br />
             <tbody>
+
+                @foreach (AllWorkouts workout in @Model.workouts)
+                {
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    <td>@workout.Date</td>
+                    <td>>@workout.Name</td>
+                    <td>>@workout.Weight</td>
+                    <td>>@workout.SleepDuration</td>
+                    <td>>@workout.Calories</td>
+                    <td>>@workout.StartTime</td>
+                    <td>>@workout.EndTime</td>
+                    <td>>@workout.Rating</td>
+                    <td>>@workout.Duration</td>
+                    <td>>@workout.AvgHeartRate</td>
+                    <td>>@workout.IsIndoor</td>
+                    <td>>@workout.Type</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                </tr>
-            </tbody>
+                }
+                </tbody>
         </table>
     </div>
 
