@@ -33,7 +33,7 @@ namespace WorkoutTracker
                    reader.GetInt32("EnvironmentID"),
                    reader.GetInt32("WeatherID"), //dont know how to get fk
                    reader.GetInt32("LocationID"), 
-                   reader.GetInt32("IsIndoor")));  // doubles? 
+                   reader.GetInt32("IsIndoor"))); 
             }
 
             return environment;

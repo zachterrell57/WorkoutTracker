@@ -35,7 +35,7 @@ namespace WorkoutTracker
                    reader.GetInt32("EnvironmentID"),
                    reader.GetString("StartTime"),
                    reader.GetString("EndTime"),
-                   reader.GetInt32("Rating")));  // doubles? 
+                   (double)reader.GetInt32("Rating")));  // doubles? 
             }
 
             return session;
