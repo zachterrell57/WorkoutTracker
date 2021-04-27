@@ -9,8 +9,17 @@ namespace WorkoutTracker.Pages
 {
     public class ArchiveModel : PageModel
     {
+
+
+
         public void OnGet()
         {
+
+        }
+
+        public void OnPost()
+        {
+
         }
     }
 }
