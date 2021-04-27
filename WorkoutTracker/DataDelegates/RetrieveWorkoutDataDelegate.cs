@@ -32,8 +32,8 @@ namespace WorkoutTracker
                 workout.Add(new Workout(
                    reader.GetInt32("WorkoutID"),
                    reader.GetInt32("SessionID"), //dont know how to get fk
-                   reader.GetInt32("Duration"), 
-                   reader.GetInt32("AvgHeartRate")));  // doubles? 
+                   (double)reader.GetInt32("Duration"), 
+                   (double)reader.GetInt32("AvgHeartRate")));  
             }
 
             return workout;

@@ -31,10 +31,10 @@ namespace WorkoutTracker
             {
                 dailyMetrics.Add(new DailyMetrics(
                    reader.GetInt32("MetricID"),
-                   reader.GetString("Date"), 
-                   reader.GetInt32("Weight"), //dont know how to get doubles
-                   reader.GetInt32("SleepDuration"),
-                   reader.GetInt32("Calories")));
+                   reader.GetString("Date"),
+                   (double)reader.GetInt32("Weight"), 
+                   (double)reader.GetInt32("SleepDuration"),
+                   (double)reader.GetInt32("Calories")));
             }
 
             return dailyMetrics;
