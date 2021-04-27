@@ -7,9 +7,9 @@ namespace WorkoutTracker
 {
     internal class CreateWeatherDataDelegate : NonQueryDataDelegate<Weather>
     {
-        private readonly WeatherType WeatherType;
+        private readonly string WeatherType;
 
-        public CreateWeatherDataDelegate(WeatherType WeatherType)
+        public CreateWeatherDataDelegate(string WeatherType)
            : base("Project.CreateWeather")
         {
             this.WeatherType = WeatherType;

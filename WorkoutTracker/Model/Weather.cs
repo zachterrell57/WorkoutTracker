@@ -8,9 +8,9 @@ namespace WorkoutTracker.Model
     public class Weather
     {
         public int WeatherID { get; }
-        public WeatherType Type { get; }
+        public string Type { get; }
 
-        internal Weather(int wID, WeatherType t)
+        internal Weather(int wID, string t)
         {
             WeatherID = wID;
             Type = t;

@@ -56,17 +56,17 @@
                 {
                 <tr>
                     <td>@workout.Date</td>
-                    <td>>@workout.Name</td>
-                    <td>>@workout.Weight</td>
-                    <td>>@workout.SleepDuration</td>
-                    <td>>@workout.Calories</td>
-                    <td>>@workout.StartTime</td>
-                    <td>>@workout.EndTime</td>
-                    <td>>@workout.Rating</td>
-                    <td>>@workout.Duration</td>
-                    <td>>@workout.AvgHeartRate</td>
-                    <td>>@workout.IsIndoor</td>
-                    <td>>@workout.Type</td>
+                    <td>@workout.Name</td>
+                    <td>@Math.Round(workout.Weight, 2)</td>
+                    <td>@Math.Round(workout.SleepDuration, 2)</td>
+                    <td>@Math.Round(workout.Calories, 2)</td>
+                    <td>@workout.StartTime</td>
+                    <td>@workout.EndTime</td>
+                    <td>@Math.Round(workout.Rating, 2)</td>
+                    <td>@Math.Round(workout.Duration, 2)</td>
+                    <td>@Math.Round(workout.AvgHeartRate, 2)</td>
+                    <td>@workout.IsIndoor</td>
+                    <td>@workout.Type</td>                   
                 </tr>
                 }
                 </tbody>

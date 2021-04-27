@@ -84,7 +84,7 @@ namespace WorkoutTracker.DataDelegates
               (double)reader.GetInt32("Duration"),
                (double)reader.GetInt32("AvgHeartRate"),
                reader.GetInt32("IsIndoor"),
-              (WeatherType)reader.GetByte("Type"),
+               reader.GetString("WeatherType"),
                reader.GetString("Name"));
         }
     }

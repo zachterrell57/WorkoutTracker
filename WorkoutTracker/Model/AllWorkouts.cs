@@ -25,14 +25,14 @@ namespace WorkoutTracker.Model
 
         public string Name { get; }
 
-        public WeatherType Type { get; }
+        public string Type { get; }
 
         public double Duration { get; }
 
         public double AvgHeartRate { get; }
 
         public AllWorkouts(string StartTime, string EndTime, double Rating, string Date, double Weight, double SleepDuration, 
-            double Calories, double Duration, double AvgHeartRate, int IsIndoor, WeatherType Type, string Name)
+            double Calories, double Duration, double AvgHeartRate, int IsIndoor, string Type, string Name)
         {
             this.IsIndoor = IsIndoor;
             this.Date = Date;
@@ -45,6 +45,7 @@ namespace WorkoutTracker.Model
             this.Name = Name;
             this.Duration = Duration;
             this.AvgHeartRate = AvgHeartRate;
+            this.Type = Type;
         }
     }
 }

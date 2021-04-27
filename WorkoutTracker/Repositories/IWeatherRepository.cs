@@ -45,6 +45,6 @@ namespace WorkoutTracker
         /// <returns>
         /// The resulting instance of <see cref="Person"/>.
         /// </returns>
-        Weather CreateWeather(WeatherType Type);
+        Weather CreateWeather(string Type);
     }
 }

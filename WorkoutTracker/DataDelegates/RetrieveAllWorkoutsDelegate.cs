@@ -21,15 +21,15 @@ namespace WorkoutTracker.DataDelegates
                 workouts.Add(new AllWorkouts(
                reader.GetString("StartTime"),
                reader.GetString("EndTime"),
-               (double)reader.GetInt32("Rating"),
+               reader.GetDouble("Rating"),
                reader.GetString("Date"),
-               (double)reader.GetInt32("Weight"),
-               (double)reader.GetInt32("SleepDuration"),
-               (double)reader.GetInt32("Calories"),
-              (double)reader.GetInt32("Duration"),
-               (double)reader.GetInt32("AvgHeartRate"),
+               reader.GetDouble("Weight"),
+               reader.GetDouble("SleepDuration"),
+               reader.GetDouble("Calories"),
+              reader.GetDouble("Duration"),
+               reader.GetDouble("AvgHeartRate"),
                reader.GetInt32("IsIndoor"),
-              (WeatherType)reader.GetByte("Type"),
+               reader.GetString("WeatherType"),
                reader.GetString("Name")));
             }
 

@@ -47,7 +47,7 @@ namespace WorkoutTracker.Pages
         
         public int IsIndoor { get; set; }
         
-        public WeatherType WeatherType { get; set;}   
+        public string WeatherType { get; set;}   
 
         public void OnGet()
         {
@@ -134,27 +134,27 @@ namespace WorkoutTracker.Pages
             {
                 if (weather == "Sunny")
                 {
-                    WeatherType = WeatherType.Sunny;
+                    WeatherType = "Sunny";
                 }
                 else if (weather == "Rainy")
                 {
-                    WeatherType = WeatherType.Rainy;
+                    WeatherType = "Rainy";
                 }
                 else if (weather == "Clear")
                 {
-                    WeatherType = WeatherType.Clear;
+                    WeatherType = "Clear";
                 }
                 else if (weather == "Overcast")
                 {
-                    WeatherType = WeatherType.Overcast;
+                    WeatherType = "Overcast";
                 }
                 else if (weather == "Snowing")
                 {
-                    WeatherType = WeatherType.Snowing;
+                    WeatherType = "Snowing";
                 }
                 else
                 {
-                    WeatherType = WeatherType.Hurricane;
+                    WeatherType = "Hurricane";
                 }
             }
 

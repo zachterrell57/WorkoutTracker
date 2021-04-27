@@ -17,27 +17,27 @@ namespace WorkoutTracker.Pages
         private IAllWorkoutsRepository allWorkoutsRepo;
         private TransactionScope transaction;
 
-        public List<string> Location { get; set; }
+        //public List<string> Location { get; set; }
 
-        public List<string> Date { get; set; }
+        //public List<string> Date { get; set; }
 
-        public List<double> Weight { get; set; }
+        //public List<double> Weight { get; set; }
 
-        public List<double> SleepDuration { get; set; }
+        //public List<double> SleepDuration { get; set; }
 
-        public List<double> Calories { get; set; }
+        //public List<double> Calories { get; set; }
 
-        public List<string> StartTime { get; set; }
+        //public List<string> StartTime { get; set; }
 
-        public List<string> EndTime { get; set; }
+        //public List<string> EndTime { get; set; }
 
-        public List<double> Rating { get; set; }
+        //public List<double> Rating { get; set; }
 
-        public List<double> Duration { get; set; }
+        //public List<double> Duration { get; set; }
 
-        public List<double> AvgHeartRate { get; set; }
+        //public List<double> AvgHeartRate { get; set; }
 
-        public List<int> IsIndoor { get; set; }
+        //public List<int> IsIndoor { get; set; }
 
         public List<WeatherType> WeatherType { get; set; }
 
@@ -50,23 +50,6 @@ namespace WorkoutTracker.Pages
             transaction.Dispose();
 
             workouts = allWorkoutsRepo.RetrieveAllWorkouts();
-
-            foreach(AllWorkouts workout in workouts)
-            {
-                Location.Add(workout.Name);
-                Date.Add(workout.Date);
-                Weight.Add(workout.Weight);
-                SleepDuration.Add(workout.SleepDuration);
-                Calories.Add(workout.Calories);
-                StartTime.Add(workout.StartTime);
-                EndTime.Add(workout.EndTime);
-                Rating.Add(workout.Rating);
-                Duration.Add(workout.Duration);
-                AvgHeartRate.Add(workout.AvgHeartRate);
-                IsIndoor.Add(workout.IsIndoor);
-                WeatherType.Add(workout.Type);
-
-            }
         }
 
         public void OnPost()

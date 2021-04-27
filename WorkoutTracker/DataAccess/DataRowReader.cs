@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 
+
 namespace DataAccess
 {
    /// <summary>
@@ -62,5 +63,11 @@ namespace DataAccess
             throw new ColumnNotFoundException(name, ex);
          }
       }
-   }
+
+        public double GetDouble(string name)
+        {
+            return GetValue(name, reader.GetDouble);
+        }
+
+    }
 }

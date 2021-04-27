@@ -31,7 +31,7 @@ namespace WorkoutTracker
             {
                 weather.Add(new Weather(
                    reader.GetInt32("WeatherID"),
-                   (WeatherType)reader.GetByte("WeatherType")));  // Get byte? 
+                   reader.GetString("WeatherType")));  // Get byte? 
             }
 
             return weather;

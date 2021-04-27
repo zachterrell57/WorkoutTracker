@@ -14,7 +14,7 @@ namespace WorkoutTracker
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Weather CreateWeather(WeatherType Type)
+        public Weather CreateWeather(string Type)
         {
             var d = new CreateWeatherDataDelegate(Type);
             return executor.ExecuteNonQuery(d);
