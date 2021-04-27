@@ -76,7 +76,7 @@ Version:4.4.2.2465-->
               <element>
                 <key type="string">Code</key>
                 <value type="string"># Basic generator template
-
+import datetime
 def main(config):
     # config["column_name"] is the column name
     # config["column_type"] is the column datatype
@@ -84,9 +84,12 @@ def main(config):
     # config["n_rows"] is the number of rows
     # config["seed"] is the current random seed
     
-    for(
-    
-    return ["Hello", "World"]</value>
+    dates = []
+    for x in range(0,100):
+        date = str(DateTime.Now.AddDays(-x))
+        string = date.split()
+        dates.append(string[0])
+    return dates   </value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -225,11 +228,11 @@ def main(config):
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">5</value>
+                <value type="string">4</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">10</value>
+                <value type="string">8</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -899,7 +902,7 @@ def main(config):
       <TableType>Generated</TableType>
       <PopulationDetails version="2" type="PopulationDetails">
         <PopulationType>RowCount</PopulationType>
-        <RowCount>100</RowCount>
+        <RowCount>101</RowCount>
         <ProportionTableExists>False</ProportionTableExists>
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
