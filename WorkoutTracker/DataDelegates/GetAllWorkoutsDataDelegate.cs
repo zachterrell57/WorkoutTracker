@@ -53,18 +53,19 @@ namespace WorkoutTracker.DataDelegates
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("IsIndoor", IsIndoor);
+
+            command.Parameters.AddWithValue("StartTime", StartTime);
+            command.Parameters.AddWithValue("EndTime", EndTime);
+            command.Parameters.AddWithValue("Rating", Rating);
             command.Parameters.AddWithValue("Date", Date);
             command.Parameters.AddWithValue("Weight", Weight);
             command.Parameters.AddWithValue("SleepDuration", SleepDuration);
             command.Parameters.AddWithValue("Calories", Calories);
-            command.Parameters.AddWithValue("StartTime", StartTime);
-            command.Parameters.AddWithValue("EndTime", EndTime);
-            command.Parameters.AddWithValue("Rating", Rating);
-            command.Parameters.AddWithValue("Name", Name);
-            command.Parameters.AddWithValue("Type", Type);
-            command.Parameters.AddWithValue("Duration", Duration);            
+            command.Parameters.AddWithValue("Duration", Duration);
             command.Parameters.AddWithValue("AvgHeartRate", AvgHeartRate);
+            command.Parameters.AddWithValue("IsIndoor", IsIndoor);
+            command.Parameters.AddWithValue("Type", Type);
+            command.Parameters.AddWithValue("Name", Name);
         }
 
         public override AllWorkouts Translate(SqlCommand command, IDataRowReader reader)
@@ -73,18 +74,18 @@ namespace WorkoutTracker.DataDelegates
                 return null;
 
             return new AllWorkouts (
-               reader.GetInt32("IsIndoor"),
-               reader.GetString("Date"),
-               (double) reader.GetInt32("Weight"),
-               (double) reader.GetInt32("SleepDuration"),
-               (double) reader.GetInt32("Calories"),
                reader.GetString("StartTime"),
                reader.GetString("EndTime"),
-               (double) reader.GetInt32("Rating"),
-               reader.GetString("Name"),
+               (double)reader.GetInt32("Rating"),
+               reader.GetString("Date"),
+               (double)reader.GetInt32("Weight"),
+               (double)reader.GetInt32("SleepDuration"),
+               (double)reader.GetInt32("Calories"),
+              (double)reader.GetInt32("Duration"),
+               (double)reader.GetInt32("AvgHeartRate"),
+               reader.GetInt32("IsIndoor"),
               (WeatherType)reader.GetByte("Type"),
-              (double) reader.GetInt32("Duration"),             
-               (double) reader.GetInt32("AvgHeartRate"));
+               reader.GetString("Name"));
         }
     }
 }
