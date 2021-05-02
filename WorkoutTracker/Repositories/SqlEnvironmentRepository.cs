@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using DataAccess;
-using WorkoutTracker.Model;
+using WorkoutTracker.Models;
 using System;
 
 namespace WorkoutTracker
@@ -15,7 +15,7 @@ namespace WorkoutTracker
         }
 
 
-        public Model.Environment CreateEnvironment(int WeatherID, int LocationID, int IsIndoor)
+        public Models.Environment CreateEnvironment(int WeatherID, int LocationID, int IsIndoor)
         {
             //if (IsIndoor != 0 || IsIndoor != 1)
             //    throw new ArgumentException("The parameter cannot be null or empty.", nameof(IsIndoor));

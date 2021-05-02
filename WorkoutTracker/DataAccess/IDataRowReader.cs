@@ -1,5 +1,5 @@
 ﻿using System;
-using WorkoutTracker.Model;
+using WorkoutTracker.Models;
 
 namespace DataAccess
 {

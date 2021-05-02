@@ -1,10 +1,15 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = " Home Page";
+@{ 
+    ViewData["Title"] = "Home page";
 }
-@using Highsoft.Web.Mvc.Charts;
-@using Highsoft.Web.Mvc.Charts.Rendering;
+@using WorkoutTracker.Models
+@using Highsoft.Web.Mvc.Charts
+@using Highsoft.Web.Mvc.Charts.Rendering
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 
 @* Index Page *@
 
@@ -20,41 +25,48 @@
                 </div>
             </div>
         </div>
-        <div class="graphs">
-            <div class="row">
-                <div class="col-sm" id="chart1"></div>
+            <div class="graphs">
+                <div class="row">
+                    <div class="col-sm" id="chart1"></div>
+                    <br />
+                    <div class="col-sm" id="chart2"></div>
+                </div>
                 <br />
-                <div class="col-sm" id="chart2"></div>
+                <div class="row">
+                    <div class="col-sm" id="chart3"></div>
+                    <br />
+                    <div class="col-sm" id="chart4"></div>
+                </div>
             </div>
-            <br />
-            <div class="row">
-                <div class="col-sm" id="chart3"></div>
-                <br />
-                <div class="col-sm" id="chart4"></div>
-            </div>
-        </div>
     </div>
 </div>
-
+}
 <br />
 
-<script src="https://code.highcharts.com/highcharts.src.js"></script>
-
-<!--Chart 1-->
 <script>
+    var topHeartRates = [];
+    var dates = new Array();
+    @foreach(TopHeartRates workout in Model.topHeartRates)
+    {
+        <text>
+                topHeartRates.push(@Math.Round(workout.AvgHeartRate, 2))
+                dates.push("@workout.Date")
+        </text>
+    }
+
 
     Highcharts.chart('chart1', {
 
-        title: {
-            text: 'Top 5 Highest Heartrate Workouts'
+        chart: {
+            borderRadius: 20,
+            type: "column",
+            style: {
+                'font-family': 'Roboto'
+            }
         },
 
-        chart: {
-            type: 'column',
-            borderRadius: 20,
-            style: {
-                fontFamily: 'Roboto'
-            }
+        title: {
+            text: 'Top 5 Highest Heart Rate Workouts'
         },
 
         yAxis: {
@@ -64,9 +76,11 @@
         },
 
         xAxis: {
-            accessibility: {
-                rangeDescription: 'Range: 2010 to 2017'
-            }
+            Title: {
+                text: 'Date'
+            },
+            type: "category",
+            categories: dates
         },
 
         legend: {
@@ -75,19 +89,10 @@
             verticalAlign: 'middle'
         },
 
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                pointStart: 2010
-            }
-        },
-
         series: [{
-            name: 'Heart Rate',
-            data: [@Model.topHeartRates],
-            color: '#E07B1D'
+            name: "Heart Rate",
+            data: topHeartRates,
+            color: "#E07B1D"
         }],
 
         responsive: {

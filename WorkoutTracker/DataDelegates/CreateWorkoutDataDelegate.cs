@@ -1,4 +1,4 @@
-﻿using WorkoutTracker.Model;
+﻿using WorkoutTracker.Models;
 using DataAccess;
 using System.Data;
 using System.Data.SqlClient;

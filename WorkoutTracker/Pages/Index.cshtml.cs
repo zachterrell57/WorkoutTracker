@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Transactions;
 using System.Threading.Tasks;
-using WorkoutTracker.Model;
+using Microsoft.AspNetCore.Mvc;
+using System.Transactions;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using WorkoutTracker.Models;
+using Highsoft.Web.Mvc.Charts;
+
 
 namespace WorkoutTracker.Pages
 {
@@ -16,15 +17,8 @@ namespace WorkoutTracker.Pages
 
         private IReportQueryRepository reportQueriesRepo;
         private TransactionScope transaction;
-        public IReadOnlyList<TopHeartRates> topHeartRates;
-
-        private readonly ILogger<IndexModel> _logger;       
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
-
+        public IReadOnlyList<TopHeartRates> topHeartRates;      
+        
         public void OnGet()
         {
             transaction = new TransactionScope();

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using WorkoutTracker.Model;
+using WorkoutTracker.Models;
 
 namespace WorkoutTracker
 {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WorkoutTracker.Model;
+using WorkoutTracker.Models;
 
 namespace WorkoutTracker.Pages
 {

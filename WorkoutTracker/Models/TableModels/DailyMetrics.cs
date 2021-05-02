@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Data.SqlTypes;
 
-namespace WorkoutTracker.Model
+namespace WorkoutTracker.Models
 {
     public class DailyMetrics
     {

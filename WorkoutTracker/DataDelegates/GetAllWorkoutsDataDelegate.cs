@@ -1,5 +1,5 @@
 ﻿using DataAccess;
-using WorkoutTracker.Model;
+using WorkoutTracker.Models;
 using System.Data.SqlClient;
 
 namespace WorkoutTracker.DataDelegates

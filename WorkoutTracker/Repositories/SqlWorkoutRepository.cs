@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using DataAccess;
-using WorkoutTracker.Model;
+using WorkoutTracker.Models;
 using System;
 
 namespace WorkoutTracker

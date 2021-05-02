@@ -1,7 +1,7 @@
 ﻿@page
 @model WorkoutTracker.Pages.ArchiveModel
 @{
-    @using WorkoutTracker.Model
+@using WorkoutTracker.Models
 
     @* Archive Page *@
 
@@ -51,7 +51,7 @@
             </thead>         
             <tbody>
 
-                @foreach (AllWorkouts workout in @Model.workouts)
+                @foreach (AllWorkouts workout in Model.workouts)
                 {
                     <tr>
                         <td>@workout.Date</td>
@@ -65,15 +65,14 @@
                         <td>@Math.Round(workout.Duration, 2)</td>
                         <td>@Math.Round(workout.AvgHeartRate, 2)</td>
                         <td>@workout.IsIndoor</td>
-                        <td>@workout.Type</td>
+                        <td>@workout.Type</td>                        
                     </tr>
-
-                }
+                }               
             </tbody>    
         </table>
     </div>
 
-  
+
 
 }
 
