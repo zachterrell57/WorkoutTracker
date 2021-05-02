@@ -1,11 +1,11 @@
 ﻿@page
 @model WorkoutTracker.Pages.ArchiveModel
 @{
-@using WorkoutTracker.Model
+    @using WorkoutTracker.Model
 
     @* Archive Page *@
 
-    <div class="container">        
+    <div class="container">
         <div class="filter-section mt-3">
             <div method="post"></div>
             <div class="row">
@@ -48,32 +48,32 @@
                     <th scope="col">Indoor(0)/Outdoor(1)</th>
                     <th scope="col">Weather</th>
                 </tr>
-            </thead>
-            <br />
+            </thead>         
             <tbody>
 
                 @foreach (AllWorkouts workout in @Model.workouts)
                 {
-                <tr>
-                    <td>@workout.Date</td>
-                    <td>@workout.Name</td>
-                    <td>@Math.Round(workout.Weight, 2)</td>
-                    <td>@Math.Round(workout.SleepDuration, 2)</td>
-                    <td>@Math.Round(workout.Calories, 2)</td>
-                    <td>@workout.StartTime</td>
-                    <td>@workout.EndTime</td>
-                    <td>@Math.Round(workout.Rating, 2)</td>
-                    <td>@Math.Round(workout.Duration, 2)</td>
-                    <td>@Math.Round(workout.AvgHeartRate, 2)</td>
-                    <td>@workout.IsIndoor</td>
-                    <td>@workout.Type</td>                   
-                </tr>
+                    <tr>
+                        <td>@workout.Date</td>
+                        <td>@workout.Name</td>
+                        <td>@Math.Round(workout.Weight, 2)</td>
+                        <td>@Math.Round(workout.SleepDuration, 2)</td>
+                        <td>@Math.Round(workout.Calories, 2)</td>
+                        <td>@workout.StartTime</td>
+                        <td>@workout.EndTime</td>
+                        <td>@Math.Round(workout.Rating, 2)</td>
+                        <td>@Math.Round(workout.Duration, 2)</td>
+                        <td>@Math.Round(workout.AvgHeartRate, 2)</td>
+                        <td>@workout.IsIndoor</td>
+                        <td>@workout.Type</td>
+                    </tr>
+
                 }
-                </tbody>
+            </tbody>    
         </table>
     </div>
 
-
+  
 
 }
 

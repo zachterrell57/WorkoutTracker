@@ -9,7 +9,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="HighCharts" Version="1.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Highcharts">
+      <HintPath>\\Mac\Home\Downloads\HighchartsStandard\Highcharts.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
