@@ -1,6 +1,6 @@
 ﻿@page
 @model IndexModel
-@{ 
+@{
     ViewData["Title"] = "Home page";
 }
 @using WorkoutTracker.Models
@@ -25,24 +25,25 @@
                 </div>
             </div>
         </div>
-            <div class="graphs">
-                <div class="row">
-                    <div class="col-sm" id="chart1"></div>
-                    <br />
-                    <div class="col-sm" id="chart2"></div>
-                </div>
+        <div class="graphs">
+            <div class="row">
+                <div class="col-sm" id="chart1"></div>
                 <br />
-                <div class="row">
-                    <div class="col-sm" id="chart3"></div>
-                    <br />
-                    <div class="col-sm" id="chart4"></div>
-                </div>
+                <div class="col-sm" id="chart2"></div>
             </div>
+            <br />
+            <div class="row">
+                <div class="col-sm" id="chart3"></div>
+                <br />
+                <div class="col-sm" id="chart4"></div>
+            </div>
+        </div>
     </div>
 </div>
 }
 <br />
 
+<!--Chart 1-->
 <script>
     var topHeartRates = [];
     var dates = new Array();
@@ -92,6 +93,229 @@
         series: [{
             name: "Heart Rate",
             data: topHeartRates,
+            color: "#E07B1D"
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+</script>s
+
+<!--Chart 2-->
+<script>
+
+    var rainyRatings = [];
+    var sunnyRatings = []
+    var dates = new Array();
+    @foreach(RatingByWeather workout in Model.ratingsByWeather)
+    {
+        if (workout.WeatherType == "Rainy")
+        {
+        <text>
+            rainyRatings.push(@Math.Round(workout.Rating, 2))
+        </text>
+        }
+
+        else if (workout.WeatherType == "Sunny")
+        {
+        <text>
+            sunnyRatings.push(@Math.Round(workout.Rating, 2))
+        </text>
+        }
+
+        <text>
+            dates.push("@workout.Date")
+        </text>
+    }
+
+    Highcharts.chart('chart2', {
+
+        chart: {
+            borderRadius: 20,
+            style: {
+                'font-family': 'Roboto'
+            }
+        },
+
+        title: {
+            text: 'How Weather Affects Your Workout '
+        },
+
+        subtitle: {
+            text: 'Ordered by date'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Rating'
+            }
+        },
+
+        xAxis: {
+            Title: {
+                text: 'Date'
+            },
+            type: "category",
+            categories: dates
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+            series: dates
+        },
+
+        series: [{
+            name: 'Sunny',
+            data: sunnyRatings,
+            color: "#E07B1D"
+        }, {
+            name: 'Rainy',
+            data: rainyRatings,
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+
+</script>
+
+<!--Chart 3-->
+<script>
+
+    Highcharts.chart('chart3', {
+
+        chart: {
+            borderRadius: 20,
+            style: {
+                'font-family': 'Roboto'
+            }
+        },
+
+        title: {
+            text: 'Calories when you rated the workout above an 8'
+        },
+
+        subtitle: {
+            text: 'Ordered by date'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Calories'
+            }
+        },
+
+        xAxis: {
+            Title: {
+                text: 'Date'
+            },
+            type: "category",
+            categories: ["1/15/21", "1/29/31", "2/6/21", "2/8/21", "3/15/21", "3/25/21"]
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        series: [{
+            name: 'Calories',
+            data: [2126, 1145, 1198, 918, 3108, 2467],
+            color: "#E07B1D"
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+</script>
+
+<!--Chart 4-->
+<script>
+
+    Highcharts.chart('chart4', {
+        chart: {
+            borderRadius: 20,
+            style: {
+                'font-family': 'Roboto'
+            }
+        },
+
+        title: {
+            text: 'Sleep Duration when you rated the workout above an 8'
+        },
+
+        subtitle: {
+            text: 'Ordered by date'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Calories'
+            }
+        },
+
+        xAxis: {
+            Title: {
+                text: 'Date'
+            },
+            type: "category",
+            categories: ["1/15/21", "1/29/31", "2/6/21", "2/8/21", "3/15/21", "3/25/21"]
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        series: [{
+            name: 'Calories',
+            data: [6, 6.5, 7, 7, 8, 7],
             color: "#E07B1D"
         }],
 

@@ -17,15 +17,17 @@ namespace WorkoutTracker.Pages
 
         private IReportQueryRepository reportQueriesRepo;
         private TransactionScope transaction;
-        public IReadOnlyList<TopHeartRates> topHeartRates;      
-        
+        public IReadOnlyList<TopHeartRates> topHeartRates;
+        public IReadOnlyList<RatingByWeather> ratingsByWeather;
+
         public void OnGet()
         {
             transaction = new TransactionScope();
-            reportQueriesRepo = new SqlReportQueryRepository(connectionString);
+            reportQueriesRepo = new SqlReportQueryRepository(connectionString);        
             transaction.Dispose();
 
             topHeartRates = reportQueriesRepo.RetrieveTopHeartRates();
+            ratingsByWeather = reportQueriesRepo.RetrieveRatingsByWeather();
         }
     }
 }

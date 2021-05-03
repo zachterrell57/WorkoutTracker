@@ -20,5 +20,10 @@ namespace WorkoutTracker
         {
             return executor.ExecuteReader(new RetrieveTopHeartRatesDelegate());
         }
+
+        public IReadOnlyList<RatingByWeather> RetrieveRatingsByWeather()
+        {
+            return executor.ExecuteReader(new RetrieveRatingByWeatherDelegate());
+        }
     }
 }

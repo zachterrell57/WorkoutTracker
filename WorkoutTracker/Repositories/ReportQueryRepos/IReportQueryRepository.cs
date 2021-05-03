@@ -6,11 +6,19 @@ namespace WorkoutTracker
     public interface IReportQueryRepository
     {
         /// <summary>
-        /// Retrieves all persons in the database.
+        /// 
         /// </summary>
         /// <returns>
-        /// <see cref="IReadOnlyList{TopHeartRates}"/> containing all persons.
+        /// <see cref="IReadOnlyList{TopHeartRates}"/> 
         /// </returns>
         IReadOnlyList<TopHeartRates> RetrieveTopHeartRates();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        /// <see cref="IReadOnlyList{RatingByWeather}"/> 
+        /// </returns>
+        IReadOnlyList<RatingByWeather> RetrieveRatingsByWeather();
     }
 }
