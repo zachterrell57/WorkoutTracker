@@ -28,14 +28,24 @@
         <div class="graphs">
             <div class="row">
                 <div class="col-sm" id="chart1"></div>
-                <br />
-                <div class="col-sm" id="chart2"></div>
             </div>
             <br />
             <div class="row">
-                <div class="col-sm" id="chart3"></div>
+                <div class="col-sm" id="chart2"></div>
                 <br />
+                <div class="col-sm" id="chart3"></div>
+            </div>
+            <br />
+            <div class="row">
                 <div class="col-sm" id="chart4"></div>
+                <br />
+                <div class="col-sm" id="chart5"></div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm" id="chart6"></div>
+                <br />
+                <div class="col-sm" id="chart7"></div>
             </div>
         </div>
     </div>
@@ -112,24 +122,17 @@
         }
 
     });
-</script>s
+</script>
 
 <!--Chart 2-->
 <script>
 
-    var rainyRatings = [];
-    var sunnyRatings = []
+    var sunnyRatings = [];
     var dates = new Array();
+
     @foreach(RatingByWeather workout in Model.ratingsByWeather)
     {
-        if (workout.WeatherType == "Rainy")
-        {
-        <text>
-            rainyRatings.push(@Math.Round(workout.Rating, 2))
-        </text>
-        }
-
-        else if (workout.WeatherType == "Sunny")
+        if (workout.WeatherType == "Sunny")
         {
         <text>
             sunnyRatings.push(@Math.Round(workout.Rating, 2))
@@ -168,9 +171,17 @@
             Title: {
                 text: 'Date'
             },
-            type: "category",
-            categories: dates
+         type: "category",
+         categories: dates,
+            accessibility: {
+                rangeDescription: 'Dates'
+            }
         },
+
+        plotOptions: {
+            series: dates
+        },
+
 
         legend: {
             layout: 'vertical',
@@ -178,18 +189,12 @@
             verticalAlign: 'middle'
         },
 
-        plotOptions: {
-            series: dates
-        },
-
-        series: [{
+        series: [
+            {
             name: 'Sunny',
             data: sunnyRatings,
             color: "#E07B1D"
-        }, {
-            name: 'Rainy',
-            data: rainyRatings,
-        }],
+            }],
 
         responsive: {
             rules: [{
@@ -213,7 +218,110 @@
 <!--Chart 3-->
 <script>
 
+    var rainyRatings = [];
+    var dates = new Array();
+    @foreach(RatingByWeather workout in Model.ratingsByWeather)
+    {
+        if (workout.WeatherType == "Rainy")
+        {
+        <text>
+            rainyRatings.push(@Math.Round(workout.Rating, 2))
+        </text>
+        }
+
+        <text>
+            dates.push("@workout.Date")
+        </text>
+    }
+
     Highcharts.chart('chart3', {
+
+        chart: {
+            borderRadius: 20,
+            style: {
+                'font-family': 'Roboto'
+            }
+        },
+
+        title: {
+            text: 'How Weather Affects Your Workout '
+        },
+
+        subtitle: {
+            text: 'Ordered by date'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Rating'
+            }
+        },
+
+        xAxis: {
+            Title: {
+                text: 'Date'
+            },
+         type: "category",
+         categories: dates,
+            accessibility: {
+                rangeDescription: 'Dates'
+            }
+        },
+
+        plotOptions: {
+            series: dates
+        },
+
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        series: [{
+            name: 'Rainy',
+            data: rainyRatings,
+            color: "#E07B1D"
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+
+</script>
+
+<!--Chart 4-->
+<script>
+
+    var calories = [];
+    var dates = new Array();
+    @foreach(SleepDurationCaloriesByRating workout in Model.sleepDurationCaloriesByRating)
+    {
+        <text>
+            calories.push(@Math.Round(workout.Calories, 2))
+        </text>
+
+
+        <text>
+            dates.push("@workout.Date")
+        </text>
+    }
+
+    Highcharts.chart('chart4', {
 
         chart: {
             borderRadius: 20,
@@ -241,7 +349,10 @@
                 text: 'Date'
             },
             type: "category",
-            categories: ["1/15/21", "1/29/31", "2/6/21", "2/8/21", "3/15/21", "3/25/21"]
+            categories: dates,
+            accessibility: {
+                rangeDescription: 'Dates'
+            }
         },
 
         legend: {
@@ -252,7 +363,7 @@
 
         series: [{
             name: 'Calories',
-            data: [2126, 1145, 1198, 918, 3108, 2467],
+            data: calories,
             color: "#E07B1D"
         }],
 
@@ -274,10 +385,24 @@
     });
 </script>
 
-<!--Chart 4-->
+<!--Chart 5-->
 <script>
 
-    Highcharts.chart('chart4', {
+    var sleepDuration = [];
+    var dates = new Array();
+    @foreach(SleepDurationCaloriesByRating workout in Model.sleepDurationCaloriesByRating)
+    {
+        <text>
+            sleepDuration.push(@Math.Round(workout.SleepDuration, 2))
+        </text>
+
+
+        <text>
+            dates.push("@workout.Date")
+        </text>
+    }
+
+    Highcharts.chart('chart5', {
         chart: {
             borderRadius: 20,
             style: {
@@ -295,7 +420,7 @@
 
         yAxis: {
             title: {
-                text: 'Calories'
+                text: 'Sleep Duration'
             }
         },
 
@@ -304,7 +429,10 @@
                 text: 'Date'
             },
             type: "category",
-            categories: ["1/15/21", "1/29/31", "2/6/21", "2/8/21", "3/15/21", "3/25/21"]
+            categories: dates,
+            accessibility: {
+                rangeDescription: 'Dates'
+            }
         },
 
         legend: {
@@ -314,8 +442,144 @@
         },
 
         series: [{
-            name: 'Calories',
-            data: [6, 6.5, 7, 7, 8, 7],
+            name: 'Sleep Duration',
+            data: sleepDuration,
+            color: "#E07B1D"
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+</script>
+
+<!--Chart 6-->
+<script>
+
+    var heartRate = [];
+    @foreach(HeartRateAndDurationLessThan6Hours workout in Model.heartRateAndDurationLessThan6Hours)
+    {
+        <text>
+            heartRate.push(@Math.Round(workout.AvgHeartRate, 2))
+        </text>
+    }
+
+    Highcharts.chart('chart6', {
+        chart: {
+            borderRadius: 20,
+            style: {
+                'font-family': 'Roboto'
+            },
+            type: 'column'
+        },
+
+        title: {
+            text: 'Average Heart Rate with less than 6 hours of sleep'
+        },
+
+        yAxis: {
+            title: {
+                text: 'BPM'
+            }
+        },
+
+        xAxis: {
+            Title: {
+                text: 'Date'
+            },
+            type: "category",
+            categories: ['All Workouts']
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        series: [{
+            name: 'Average Heart Rate',
+            data: heartRate,
+            color: "#E07B1D"
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+</script>
+
+<!--Chart 7-->
+<script>
+
+    var duration = [];
+    @foreach(HeartRateAndDurationLessThan6Hours workout in Model.heartRateAndDurationLessThan6Hours)
+    {
+        <text>
+            duration.push(@Math.Round(workout.Duration, 2))
+        </text>
+    }
+
+    Highcharts.chart('chart7', {
+        chart: {
+            borderRadius: 20,
+            style: {
+                'font-family': 'Roboto'
+            },
+            type: 'column'
+        },
+
+        title: {
+            text: 'Average Workout Duration with less than 6 hours of sleep'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Hours'
+            }
+        },
+
+        xAxis: {
+            Title: {
+                text: 'Date'
+            },
+            type: "category",
+            categories: ['All Workouts']
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        series: [{
+            name: 'Average Workout Duration',
+            data: duration,
             color: "#E07B1D"
         }],
 

@@ -25,5 +25,15 @@ namespace WorkoutTracker
         {
             return executor.ExecuteReader(new RetrieveRatingByWeatherDelegate());
         }
+
+        public IReadOnlyList<SleepDurationCaloriesByRating> RetrieveSleepDurationCaloriesByRating()
+        {
+            return executor.ExecuteReader(new RetrieveSleepDurationCaloriesByRatingDelegate());
+        }
+
+        public IReadOnlyList<HeartRateAndDurationLessThan6Hours> RetrieveHeartRateAndDurationLessThan6Hours()
+        {
+            return executor.ExecuteReader(new RetrieveHeartRateAndDurationLessThan6HoursDataDelegate());
+        }
     }
 }

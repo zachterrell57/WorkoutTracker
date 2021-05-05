@@ -20,5 +20,9 @@ namespace WorkoutTracker
         /// <see cref="IReadOnlyList{RatingByWeather}"/> 
         /// </returns>
         IReadOnlyList<RatingByWeather> RetrieveRatingsByWeather();
+
+        IReadOnlyList<SleepDurationCaloriesByRating> RetrieveSleepDurationCaloriesByRating();
+
+        IReadOnlyList<HeartRateAndDurationLessThan6Hours> RetrieveHeartRateAndDurationLessThan6Hours();
     }
 }

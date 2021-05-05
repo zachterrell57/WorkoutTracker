@@ -19,6 +19,8 @@ namespace WorkoutTracker.Pages
         private TransactionScope transaction;
         public IReadOnlyList<TopHeartRates> topHeartRates;
         public IReadOnlyList<RatingByWeather> ratingsByWeather;
+        public IReadOnlyList<SleepDurationCaloriesByRating> sleepDurationCaloriesByRating;
+        public IReadOnlyList<HeartRateAndDurationLessThan6Hours> heartRateAndDurationLessThan6Hours;
 
         public void OnGet()
         {
@@ -28,6 +30,8 @@ namespace WorkoutTracker.Pages
 
             topHeartRates = reportQueriesRepo.RetrieveTopHeartRates();
             ratingsByWeather = reportQueriesRepo.RetrieveRatingsByWeather();
+            sleepDurationCaloriesByRating = reportQueriesRepo.RetrieveSleepDurationCaloriesByRating();
+            heartRateAndDurationLessThan6Hours = reportQueriesRepo.RetrieveHeartRateAndDurationLessThan6Hours();
         }
     }
 }
