@@ -25,9 +25,9 @@ namespace WorkoutTracker
             return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<AllWorkouts> RetrieveAllWorkouts()
+        public IReadOnlyList<AllWorkouts> RetrieveAllWorkouts(string filter)
         {
-            return executor.ExecuteReader(new RetrieveAllWorkoutsDelegate());
+            return executor.ExecuteReader(new RetrieveAllWorkoutsDelegate(filter));
         }
     }
 }

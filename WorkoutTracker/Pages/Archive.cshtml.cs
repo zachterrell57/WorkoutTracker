@@ -16,10 +16,11 @@ namespace WorkoutTracker.Pages
 
         private IAllWorkoutsRepository allWorkoutsRepo;
         private TransactionScope transaction;
+        
+        public IReadOnlyList<AllWorkouts> Workouts{ get; set; }
 
-        public List<WeatherType> WeatherType { get; set; }
-
-        public IReadOnlyList<AllWorkouts> workouts;
+        [BindProperty(SupportsGet = true)]
+        public string Filter { get; set; } = "Date";
 
         public void OnGet()
         {
@@ -27,12 +28,18 @@ namespace WorkoutTracker.Pages
             allWorkoutsRepo = new SqlAllWorkoutsRepository(connectionString);
             transaction.Dispose();
 
-            workouts = allWorkoutsRepo.RetrieveAllWorkouts();
+            
+            Workouts = allWorkoutsRepo.RetrieveAllWorkouts(Filter);
         }
 
         public void OnPost()
         {
+            transaction = new TransactionScope();
+            allWorkoutsRepo = new SqlAllWorkoutsRepository(connectionString);
+            transaction.Dispose();
+            Filter = Request.Form["Filter"];
 
+            Workouts = allWorkoutsRepo.RetrieveAllWorkouts(Filter);
         }
     }
 }

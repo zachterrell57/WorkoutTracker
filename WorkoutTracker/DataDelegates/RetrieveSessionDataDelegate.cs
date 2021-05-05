@@ -37,7 +37,6 @@ namespace WorkoutTracker
                    reader.GetString("EndTime"),
                    (double)reader.GetInt32("Rating")));  // doubles? 
             }
-
             return session;
         }
     }
