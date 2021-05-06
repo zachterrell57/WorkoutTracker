@@ -7,11 +7,10 @@ CREATE OR ALTER PROCEDURE Project.CreateSession
    @EnvironmentID INT OUTPUT 
 AS
 
-INSERT Project.CreateSession(StartTime, EndTime, Rating)
-VALUES(@StartTime, @EndTime, @Rating);
+INSERT Project.Session(MetricID, EnvironmentID, StartTime, EndTime, Rating)
+VALUES(@MetricID, @EnvironmentID, @StartTime, @EndTime, @Rating);
 
 SET @SessionID = SCOPE_IDENTITY(); 
-SET @MetricID = SCOPE_IDENTITY(); 
-SET @EnvironmentID = SCOPE_IDENTITY(); 
+
 GO
 

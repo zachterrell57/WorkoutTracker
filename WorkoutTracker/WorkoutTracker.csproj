@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Sql\Procedures\.vs\VSWorkspaceState.json" />
+    <Content Include="Sql\Schemas\.vs\VSWorkspaceState.json" />
+    <Content Include="Sql\Tables\.vs\VSWorkspaceState.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Sql\Procedures\.vs\slnx.sqlite" />
+    <None Include="Sql\Schemas\.vs\slnx.sqlite" />
+    <None Include="Sql\Tables\.vs\slnx.sqlite" />
     <None Include="wwwroot\Images\AddWorkoutButton" />
   </ItemGroup>
 
@@ -19,6 +28,12 @@
     <Reference Include="Highcharts">
       <HintPath>\\Mac\Home\Downloads\HighchartsStandard\Highcharts.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Sql\Procedures\.vs\Procedures\v15\" />
+    <Folder Include="Sql\Schemas\.vs\Schemas\v15\" />
+    <Folder Include="Sql\Tables\.vs\Tables\v15\" />
   </ItemGroup>
 
 </Project>

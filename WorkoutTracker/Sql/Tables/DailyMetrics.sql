@@ -3,7 +3,7 @@ BEGIN
     CREATE TABLE Project.DailyMetrics
     (   
         MetricID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
-        Date NVARCHAR NOT NULL ,
+        Date NVARCHAR(32) NOT NULL ,
         Weight FLOAT NOT NULL,     
         SleepDuration FLOAT NOT NULL, 
         Calories FLOAT NOT NULL

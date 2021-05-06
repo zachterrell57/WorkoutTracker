@@ -4,7 +4,7 @@ CREATE OR ALTER PROCEDURE Project.CreateWeather
 AS
 
 INSERT Project.Weather(WeatherType)
-VALUES(@Weathertype);
+VALUES(@WeatherType);
 
 SET @WeatherID = SCOPE_IDENTITY();
 GO

@@ -3,10 +3,16 @@ BEGIN
     CREATE TABLE Project.Session
     (   
         SessionID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY ,   
-        MetricID INT NOT NULL FOREIGN KEY REFERENCES Project.DailyMetrics(MetricID),
-        EnviornmentID INT NOT NULL FOREIGN KEY REFERENCES Project.Environment(EnvironmentID),
-        StartTime NVARCHAR(32) NOT NULL, --Just putting in a time?--
+        MetricID INT NOT NULL,
+        EnvironmentID INT NOT NULL,
+        StartTime NVARCHAR(32) NOT NULL,
         EndTime NVARCHAR(32) NOT NULL, 
-        Rating FLOAT NOT NULL, --Out of 10, 10 being best?--    
+        Rating FLOAT NOT NULL,   
+
+		CONSTRAINT FK_Project_Session_Project_DailyMetrics FOREIGN KEY(MetricID)
+		REFERENCES Project.DailyMetrics(MetricID),
+
+		CONSTRAINT FK_Project_Session_Project_Environment FOREIGN KEY(EnvironmentID)
+		REFERENCES Project.Environment(EnvironmentID)
     );
 END;

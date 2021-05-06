@@ -1,15 +1,15 @@
 CREATE OR ALTER PROCEDURE Project.CreateWorkout
    @Duration FLOAT,
    @AvgHeartRate FLOAT,
-   @WorkoutID INT,
-   @SessionID INT
+   @WorkoutID INT OUTPUT,
+   @SessionID INT OUTPUT
 
 AS
 
-INSERT Project.Workout(Duration, AvgHeartRate)
-VALUES(@Duration, @AvgHeartRate);
+INSERT Project.Workout(SessionID, Duration, AvgHeartRate)
+VALUES(@SessionID, @Duration, @AvgHeartRate);
 
 SET @WorkoutID = SCOPE_IDENTITY();
-SET @SessionID = SCOPE_IDENTITY();
+
 GO
 

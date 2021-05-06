@@ -615,7 +615,7 @@ def main(config):
           </Generator>
         </value>
         <value version="1" type="SDGField">
-          <Name>EnviornmentID</Name>
+          <Name>EnvironmentID</Name>
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>True</ForeignKey>
@@ -810,7 +810,7 @@ def main(config):
         </value>
         <value version="2" type="ForeignKeyProperty">
           <Fields type="List&lt;string&gt;" version="1">
-            <value type="string">EnviornmentID</value>
+            <value type="string">EnvironmentID</value>
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
