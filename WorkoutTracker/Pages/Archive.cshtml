@@ -5,25 +5,25 @@
 
     @* Archive Page *@
 
-    <div class="container">
+<div class="container" >
+    <form  method="post">
         <div class="filter-section mt-3">
-            <div method="post"></div>
             <div class="row">
                 <div class="col-3 text-center align-middle" style="color: white">
                     Filter By:
                     <select data-val="true" id="Filter" name="Filter">
                         <option selected="selected" value="0">Date</option>
-                        <option value="1">Weight</option>
-                        <option value="2">Sleep Duration</option>
-                        <option value="3">Calories Eaten</option>
-                        <option value="4">Start Time</option>
-                        <option value="5">End Time</option>
-                        <option value="6">Rating</option>
-                        <option value="7">Duration</option>
-                        <option value="8">Average Heart Rate</option>
-                        <option value="9">Indoor/Outdoor</option>
-                        <option value="10">Weather Type</option>
-                        <option value="11">Location</option>
+                        <option value="Weight">Weight</option>
+                        <option value="SleepDuration">Sleep Duration</option>
+                        <option value="Calories">Calories Eaten</option>
+                        <option value="StartTime">Start Time</option>
+                        <option value="EndTime">End Time</option>
+                        <option value="Rating">Rating</option>
+                        <option value="Duration">Duration</option>
+                        <option value="AvgHeartRate">Average Heart Rate</option>
+                        <option value="IsIndoor">Indoor/Outdoor</option>
+                        <option value="WeatherType">Weather Type</option>
+                        <option value="Location">Location</option>
                     </select>
                 </div>
                 <div class="col text-left align-middle">
@@ -48,10 +48,9 @@
                     <th scope="col">Indoor(0)/Outdoor(1)</th>
                     <th scope="col">Weather</th>
                 </tr>
-            </thead>         
+            </thead>
             <tbody>
-
-                @foreach (AllWorkouts workout in Model.workouts)
+                @foreach (AllWorkouts workout in Model.Workouts)
                 {
                     <tr>
                         <td>@workout.Date</td>
@@ -65,13 +64,13 @@
                         <td>@Math.Round(workout.Duration, 2)</td>
                         <td>@Math.Round(workout.AvgHeartRate, 2)</td>
                         <td>@workout.IsIndoor</td>
-                        <td>@workout.Type</td>                        
+                        <td>@workout.Type</td>
                     </tr>
-                }               
-            </tbody>    
+                }
+            </tbody>
         </table>
-    </div>
-
+    </form>
+</div>
 
 
 }
