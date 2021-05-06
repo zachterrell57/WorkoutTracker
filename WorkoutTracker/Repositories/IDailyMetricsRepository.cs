@@ -13,7 +13,7 @@ namespace WorkoutTracker
         /// <param name="SleepDuration">SleepDuration of the DailyMetric to create.</param>
         /// /// <param name="Calories">Calories of the DailyMetric to create.</param>
         /// <returns>
-        /// The resulting instance of <see cref="Person"/>.
+        /// The resulting instance of <see cref="DailyMetrics"/>.
         /// </returns>
         DailyMetrics CreateDailyMetrics(string Date, double Weight, double SleepDuration, double Calories);
     }

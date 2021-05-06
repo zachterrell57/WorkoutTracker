@@ -11,6 +11,6 @@ namespace WorkoutTracker
         /// <returns>
         /// <see cref="IReadOnlyList{AllWorkouts}"/> containing all workouts.
         /// </returns>
-        IReadOnlyList<AllWorkouts> RetrieveAllWorkouts();
+        IReadOnlyList<AllWorkouts> RetrieveAllWorkouts(string filter);
     }
 }
