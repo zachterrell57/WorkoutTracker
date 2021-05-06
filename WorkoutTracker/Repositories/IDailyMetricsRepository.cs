@@ -6,11 +6,12 @@ namespace WorkoutTracker
     public interface IDailyMetricsRepository
     {
         /// <summary>
-        /// Creates a new person in the repository.
+        /// Creates a new DailyMetric in the repository.
         /// </summary>
-        /// <param name="firstName">First name of the person to create.</param>
-        /// <param name="lastName">Last name of the person to create.</param>
-        /// <param name="email">Email of the person to create.</param>
+        /// <param name="Date">Date of the DailyMetric to create.</param>
+        /// <param name="Weight">Weight of the DailyMetric to create.</param>
+        /// <param name="SleepDuration">SleepDuration of the DailyMetric to create.</param>
+        /// /// <param name="Calories">Calories of the DailyMetric to create.</param>
         /// <returns>
         /// The resulting instance of <see cref="Person"/>.
         /// </returns>

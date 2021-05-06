@@ -28,22 +28,5 @@ namespace WorkoutTracker
             var d = new CreateSessionDataDelegate(MetricID, EnvironmentID, StartTime, EndTime, Rating);
             return executor.ExecuteNonQuery(d);
         }
-
-        //public Person FetchPerson(int personId)
-        //{
-        //    var d = new FetchPersonDataDelegate(personId);
-        //    return executor.ExecuteReader(d); 
-        //}
-
-        //public Person GetPerson(string email)
-        //{
-        //    var d = new GetPersonDataDelegate(email);
-        //    return executor.ExecuteReader(d);
-        //}
-
-        //public IReadOnlyList<Person> RetrievePersons()
-        //{
-        //    return executor.ExecuteReader(new RetrievePersonsDataDelegate());
-        //}
     }
 }

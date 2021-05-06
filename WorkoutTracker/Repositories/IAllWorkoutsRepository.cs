@@ -6,10 +6,10 @@ namespace WorkoutTracker
     public interface IAllWorkoutsRepository
     {
         /// <summary>
-        /// Retrieves all persons in the database.
+        /// Retrieves all worrkouts in the database.
         /// </summary>
         /// <returns>
-        /// <see cref="IReadOnlyList{Person}"/> containing all persons.
+        /// <see cref="IReadOnlyList{AllWorkouts}"/> containing all workouts.
         /// </returns>
         IReadOnlyList<AllWorkouts> RetrieveAllWorkouts();
     }

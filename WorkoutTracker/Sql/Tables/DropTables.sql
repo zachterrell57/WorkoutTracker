@@ -21,17 +21,9 @@ CREATE TABLE Project.DailyMetrics
     );
 
 
---CREATE TABLE Project.Weather
---(   
---	WeatherID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
---	WeatherType NVARCHAR(32) NOT NULL
---);
-
-
 CREATE TABLE Project.Environment
 (   
     EnvironmentID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,   
-    --WeatherID INT NOT NULL FOREIGN KEY REFERENCES Project.Weather(WeatherID),
     LocationID INT NOT NULL FOREIGN KEY REFERENCES Project.Location(LocationID), 
     IsIndoor INT 
 );
@@ -42,18 +34,16 @@ CREATE TABLE Project.Session
     SessionID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY ,   
     MetricID INT NOT NULL FOREIGN KEY REFERENCES Project.DailyMetrics(MetricID),
     EnviornmentID INT NOT NULL FOREIGN KEY REFERENCES Project.Environment(EnvironmentID),
-    StartTime NVARCHAR(32) NOT NULL, --Just putting in a time?--
+    StartTime NVARCHAR(32) NOT NULL,
     EndTime NVARCHAR(32) NOT NULL, 
-    Rating FLOAT NOT NULL, --Out of 10, 10 being best?--    
+    Rating FLOAT NOT NULL,   
 );
 
 CREATE TABLE Project.Workout
 (   
     WorkoutID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    SessionID INT NOT NULL FOREIGN KEY REFERENCES Project.Session(SessionID),   
-    -- GroupNameID INT NOT NULL FOREIGN KEY REFERENCES Project.MuscleGroup(GroupNameID),--
-    Duration FLOAT NOT NULL, --Out of mins, hours?-- 
-    --MuscleGroup NVARCHAR(32) NOT NULL,--
+    SessionID INT NOT NULL FOREIGN KEY REFERENCES Project.Session(SessionID),
+    Duration FLOAT NOT NULL,
     AvgHeartRate FLOAT NOT NULL
 );
 
